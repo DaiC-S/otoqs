@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_18_042452) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_22_224326) do
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "user_name", null: false
     t.string "email", default: "", null: false
@@ -25,4 +25,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_042452) do
     t.index ["user_name"], name: "index_users_on_user_name", unique: true
   end
 
+  create_table "vouchers", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title", null: false
+    t.string "code_text", null: false
+    t.text "code_url", null: false
+    t.integer "status", null: false
+    t.string "info"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_vouchers_on_user_id"
+  end
+
+  add_foreign_key "vouchers", "users"
 end
