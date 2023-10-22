@@ -8,9 +8,9 @@
                 </div>
             <% else %>
                 <div class="flex">
-                <%= link_to 'ログイン', new_user_session_path, class: "block rounded-md bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium text-teal-600 transition hover:text-teal-600/75" %>
+                <%= link_to 'ログイン', new_user_session_path, class: "block rounded-md bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium text-teal-500 transition hover:text-teal-500/75" %>
 
-                <%= link_to '新規登録', new_user_registration_path, class: "block rounded-md bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium text-teal-600 transition hover:text-teal-600/75" %>
+                <%= link_to '新規登録', new_user_registration_path, class: "block rounded-md bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium text-teal-500 transition hover:text-teal-500/75" %>
                 </div>
             <% end %>
             </div>
@@ -20,5 +20,8 @@
         <h1 class="text-3xl font-bold underline">
             Hello world!
         </h1>
+        <div class="fixed bottom-8 right-8 rounded-full w-24 py-9 bg-teal-500 text-white text-center transition hover:bg-teal-500/75">
+        新規作成   
+        </div>
     </main>
 </div>
