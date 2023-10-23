@@ -10,13 +10,19 @@
           hover:text-teal-500/75" %>
         </div>
         <% else %>
-        <div class="flex">
-          <%= link_to 'ログイン', new_user_session_path, class: "block
-          rounded-md bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium
-          text-teal-500 transition hover:text-teal-500/75" %> <%= link_to
-          '新規登録', new_user_registration_path, class: "block rounded-md
-          bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium text-teal-500
-          transition hover:text-teal-500/75" %>
+        <div>
+          <ul class="flex">
+            <li class="block">
+              <%= link_to 'ログイン', new_user_session_path, class: "rounded-md
+              bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium text-teal-500
+              transition hover:text-teal-500/75" %>
+            </li>
+            <li class="block">
+              <%= link_to '新規登録', new_user_registration_path, class:
+              "rounded-md bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium
+              text-teal-500 transition hover:text-teal-500/75" %>
+            </li>
+          </ul>
         </div>
         <% end %>
       </div>
