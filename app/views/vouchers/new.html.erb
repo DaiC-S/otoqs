@@ -1,0 +1,31 @@
+<%= form_with(model: @voucher, local: true, data: { turbo: false }) do |f| %>
+<div class="mt-6 flex items-center justify-center">
+  <div class="relative block">
+    <div class="mt-4">
+      <label
+        for="title"
+        class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
+        >クーポン名</label
+      >
+      <%= f.text_field :title, class: "block rounded-md w-80", placeholder:
+      "Aショップ 友達紹介コード" %>
+    </div>
+
+    <div class="mt-4">
+      <label
+        for="title"
+        class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-gray-500 after:content-['*このメモが他の人に見られることはありません']"
+        >ひとことメモ</label
+      >
+      <%= f.text_area :info, class: "block rounded-md w-80", placeholder:
+      "・新規登録してくれたら、1,000円OFF" %>
+    </div>
+
+    <div class="mt-16">
+      <%= f.submit 'メモ完了！', class:"rounded-md border border-black bg-black
+      px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent
+      hover:text-black/50" %>
+    </div>
+  </div>
+</div>
+<% end %>
