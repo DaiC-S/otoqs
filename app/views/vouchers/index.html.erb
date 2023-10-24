@@ -6,21 +6,21 @@
         <div class="flex">
           <%= link_to 'ログアウト', destroy_user_session_path, data: {
           turbo_method: :delete}, class: "block rounded-md bg-gray-100 px-5
-          py-2.5 mx-3 text-sm font-medium text-teal-500 transition
-          hover:text-teal-500/75" %>
+          py-2.5 mx-3 text-sm font-medium text-black transition
+          hover:text-black/75" %>
         </div>
         <% else %>
         <div>
           <ul class="flex">
             <li class="block">
               <%= link_to 'ログイン', new_user_session_path, class: "rounded-md
-              bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium text-teal-500
-              transition hover:text-teal-500/75" %>
+              bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium text-black
+              transition hover:text-black/75" %>
             </li>
             <li class="block">
               <%= link_to '新規登録', new_user_registration_path, class:
               "rounded-md bg-gray-100 px-5 py-2.5 mx-3 text-sm font-medium
-              text-teal-500 transition hover:text-teal-500/75" %>
+              text-black transition hover:text-black/75" %>
             </li>
           </ul>
         </div>
@@ -30,10 +30,10 @@
   </header>
   <main class="container mx-auto mt-28 px-5 flex">
     <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    <div
-      class="fixed bottom-8 right-8 rounded-full w-24 py-9 bg-teal-500 text-white text-center transition hover:bg-teal-500/75"
-    >
-      新規作成
+    <div class="">
+      <%= link_to '新規作成', new_voucher_path, class: "fixed bottom-8 right-8
+      rounded-full w-24 py-9 bg-black text-white text-center transition
+      hover:bg-black/75" %>
     </div>
   </main>
 </div>
