@@ -33,6 +33,19 @@
 
     <div class="mt-6">
       <label
+        for="status"
+        class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
+        >クーポン情報の公開範囲</label
+      >
+      <%= f.select :status,
+      [["公開（クーポンまとめサイトの検索結果に表示されます）", "1"],
+      ["限定公開（あなたのマイページのリンクを知っている人だけが閲覧可能）",
+      "2"], ["非公開（あなただけ閲覧可能）", "3"]], class: "block rounded-md
+      w-80" %>
+    </div>
+
+    <div class="mt-6">
+      <label
         for="info"
         class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-gray-500 after:content-['「ひとことメモ」は他の人から見られません']"
         >ひとことメモ</label
@@ -44,7 +57,7 @@
     <div class="mt-16">
       <%= f.submit 'メモ完了！', class:"rounded-md border border-black bg-black
       px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent
-      hover:text-black/50" %>
+      hover:text-black" %>
     </div>
   </div>
 </div>
