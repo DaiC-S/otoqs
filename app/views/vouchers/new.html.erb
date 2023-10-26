@@ -1,47 +1,47 @@
 <%= form_with(model: @voucher, local: true, data: { turbo: false }) do |f| %>
-<div class="mt-6 flex items-center justify-center">
-  <div class="relative block">
+<main class="flex items-center justify-center px-12 py-8">
+  <div class="relative block w-full sm:w-1/2">
     <div class="mt-12">
       <label
         for="title"
-        class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
+        class="block text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >クーポン名</label
       >
-      <%= f.text_field :title, class: "block rounded-md w-80", placeholder:
+      <%= f.text_field :title, class: "rounded-md w-full sm:w-80", placeholder:
       "例）Aショップ 友達紹介コード" %>
     </div>
 
     <div class="mt-6">
       <label
         for="code_text"
-        class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*テキストコードかURLどちらか必須']"
+        class="block text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*テキストコードかURLどちらか必須']"
         >クーポン（テキストコード）</label
       >
-      <%= f.text_field :code_text, class: "block rounded-md w-80", placeholder:
-      "例）ABC123" %>
+      <%= f.text_field :code_text, class: "rounded-md w-full sm:w-80",
+      placeholder: "例）ABC123" %>
     </div>
 
     <div class="mt-6">
       <label
         for="code_url"
-        class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*テキストコードかURLどちらか必須']"
+        class="block text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*テキストコードかURLどちらか必須']"
         >クーポン（URL）</label
       >
-      <%= f.url_field :code_url, class: "block rounded-md w-80", placeholder:
-      "例）https://example.com" %>
+      <%= f.url_field :code_url, class: "rounded-md w-full sm:w-80",
+      placeholder: "例）https://example.com" %>
     </div>
 
     <div class="mt-6">
       <label
         for="status"
-        class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
+        class="block text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >クーポン情報の公開範囲</label
       >
       <%= f.select :status,
       [["公開（クーポンまとめサイトの検索結果に表示されます）", "1"],
-      ["限定公開（あなたのマイページのリンクを知っている人だけが閲覧可能）",
-      "2"], ["非公開（あなただけ閲覧可能）", "3"]], class: "block rounded-md
-      w-80" %>
+      ["限定公開（あなたのマイページリンクを知っている人のみ閲覧可能）", "2"],
+      ["非公開（あなただけ閲覧可能）", "3"]], class: "rounded-md w-full sm:w-80"
+      %>
     </div>
 
     <div class="mt-6">
@@ -50,15 +50,22 @@
         class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-gray-500 after:content-['「ひとことメモ」は他の人から見られません']"
         >ひとことメモ</label
       >
-      <%= f.text_area :info, class: "block rounded-md w-80", placeholder:
+      <%= f.text_area :info, class: "rounded-md w-full sm:w-80", placeholder:
       "例）新規登録してくれたら、1,000円OFF" %>
     </div>
 
+    <div class="mt-6">
+      <label for="date" class="block mb-1 text-sm font-medium text-gray-700"
+        >日付</label
+      >
+      <%= f.date_field :info, class: "rounded-md w-full sm:w-80" %>
+    </div>
+
     <div class="mt-16">
-      <%= f.submit 'メモ完了！', class:"rounded-md border border-black bg-black
-      px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent
-      hover:text-black" %>
+      <%= f.submit 'クーポンをメモする', class:"rounded-md border border-black
+      bg-black px-12 py-3 text-sm font-medium text-white transition
+      hover:bg-transparent hover:text-black" %>
     </div>
   </div>
-</div>
+</main>
 <% end %>
