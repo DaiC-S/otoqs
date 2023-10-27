@@ -1,24 +1,31 @@
-# README
+# アプリケーション名
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション概要
 
-Things you may want to cover:
+# URL
 
-* Ruby version
+# テスト用アカウント
 
-* System dependencies
+# 利用方法
 
-* Configuration
+# アプリケーションを作成した背景
 
-* Database creation
+# あらい出した要件
 
-* Database initialization
+# 実装した機能についての画像や GIF およびその説明
 
-* How to run the test suite
+# 実装予定の機能
 
-* Services (job queues, cache servers, search engines, etc.)
+# データベース設計
 
-* Deployment instructions
+# 画面遷移
 
-* ...
+# 開発環境
+
+# ローカルでの動作方法
+
+# 工夫したポイント
+
+# 改善点
+
+# 制作時間
