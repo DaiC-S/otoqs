@@ -1,6 +1,7 @@
 class VouchersController < ApplicationController
+
   def index
-    @@vouchers = Voucher.all
+    @vouchers = Voucher.all
   end
 
   def new
@@ -8,5 +9,14 @@ class VouchersController < ApplicationController
   end
   
   def create
+    Voucher.create(voucher_params)
+    redirect_to '/'
   end
+
+  private
+
+  def voucher_params
+    params.require(:voucher).permit(:title, :code_text, :code_url, :status, :info, :date).merge(user_id: current_user.id)
+  end
+
 end
