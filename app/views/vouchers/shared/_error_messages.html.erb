@@ -1,0 +1,12 @@
+<% if model.errors.any? %>
+<div class="space-y-4">
+  <div class="rounded-md bg-red-50 p-4 w-full sm:w-80 text-sm text-red-500">
+    <b>🥲 Error alert</b>
+    <ul class="mt-2">
+      <% model.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>

@@ -1,6 +1,8 @@
 <%= form_with(model: @voucher, local: true, data: { turbo: false }) do |f| %>
 <main class="flex items-center justify-center px-12 py-8">
   <div class="relative block w-full sm:w-1/2">
+    <%= render "vouchers/shared/error_messages", model: f.object %>
+
     <div class="mt-12">
       <label
         for="title"

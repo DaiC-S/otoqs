@@ -5,7 +5,6 @@ class Voucher < ApplicationRecord
   with_options presence: true do
     validates :title
     validates :status
-    validates :title
   end
 
   validate :required_either_code_text_or_code_url
