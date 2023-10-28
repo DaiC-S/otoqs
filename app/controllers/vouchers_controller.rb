@@ -11,8 +11,12 @@ class VouchersController < ApplicationController
   end
   
   def create
-    Voucher.create(voucher_params)
-    redirect_to '/'
+    @voucher = Voucher.create(voucher_params)
+    if @voucher.save
+      redirect_to '/'
+    else
+      render '/vouchers/new', status: :unprocessable_entity 
+    end
   end
 
   private
