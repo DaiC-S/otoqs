@@ -13,7 +13,6 @@ class Voucher < ApplicationRecord
 
   def required_either_code_text_or_code_url
     return if code_text.present? ^ code_url.present?
-
     errors.add(:base, 'コードまたはURLのどちらか一方のみを入力してください')
   end
 
