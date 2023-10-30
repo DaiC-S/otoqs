@@ -29,9 +29,13 @@
     </div>
   </header>
   <main class="container mx-auto mt-28 px-5 flex">
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    <div class="">
-      <%= link_to '新規作成', new_voucher_path, class: "fixed bottom-8 right-8
+    <ul>
+      <% @vouchers.each do |voucher| %>
+      <li><%= voucher.title %></li>
+      <%end%>
+    </ul>
+    <div>
+      <%= link_to '新規メモ', new_voucher_path, class: "fixed bottom-8 right-8
       rounded-full w-24 py-9 bg-black text-white text-center transition
       hover:bg-black/75" %>
     </div>
