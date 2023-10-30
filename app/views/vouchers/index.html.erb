@@ -29,6 +29,7 @@
     </div>
   </header>
   <main class="container mx-auto mt-16 px-5 flex">
+    <% if user_signed_in? %>
     <div>
       <% @vouchers.each do |voucher| %>
       <div class="mx-4 max-w-md mt-1 rounded-lg bg-white shadow">
@@ -46,5 +47,10 @@
       rounded-full w-24 py-9 bg-black text-white text-center transition
       hover:bg-black/75" %>
     </div>
+    <% else %>
+    <div class="mx-auto">
+      <h2 class="text-4xl font-bold text-center">ログインしてください</h2>
+    </div>
+    <% end %>
   </main>
 </div>
