@@ -29,11 +29,18 @@
     </div>
   </header>
   <main class="container mx-auto mt-28 px-5 flex">
-    <ul>
+    <div>
       <% @vouchers.each do |voucher| %>
-      <li><%= voucher.title %></li>
+      <div class="mx-auto max-w-md rounded-lg bg-white shadow">
+        <div class="p-4">
+          <h3 class="text-xl font-medium text-gray-900">
+            <%= voucher.title %>
+          </h3>
+          <p class="mt-1 text-gray-500"><%= voucher.date %></p>
+        </div>
+      </div>
       <%end%>
-    </ul>
+    </div>
     <div>
       <%= link_to '新規メモ', new_voucher_path, class: "fixed bottom-8 right-8
       rounded-full w-24 py-9 bg-black text-white text-center transition
