@@ -19,6 +19,10 @@ class VouchersController < ApplicationController
     end
   end
 
+  def show
+    @voucher = Voucher.find(params[:id])
+  end
+
   private
 
   def voucher_params

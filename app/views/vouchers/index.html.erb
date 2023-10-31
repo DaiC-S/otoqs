@@ -34,12 +34,14 @@
       <% @vouchers.each do |voucher| %> <% if voucher.user_id == current_user.id
       %>
       <div class="mx-4 max-w-md mt-1 rounded-lg bg-white shadow">
+        <%= link_to voucher_path(voucher.id) do %>
         <div class="p-4">
           <h3 class="text-xl font-medium text-gray-900">
             <%= voucher.title %>
           </h3>
           <p class="mt-1 text-gray-500"><%= voucher.date %></p>
         </div>
+        <%end%>
       </div>
       <%end%> <%end%>
     </div>
