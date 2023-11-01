@@ -23,6 +23,12 @@ class VouchersController < ApplicationController
     @voucher = Voucher.find(params[:id])
   end
 
+  def destroy
+    @voucher = Voucher.find(params[:id])
+    @voucher.destroy
+    redirect_to '/'
+  end
+
   private
 
   def voucher_params

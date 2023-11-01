@@ -1,33 +1,52 @@
-<main class="container mx-auto mt-16 px-5 flex">
-  <dl class="-my-3 divide-y divide-gray-100 text-sm">
-    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+<main class="container mx-auto mt-16 px-5">
+  <dl class="">
+    <div class="mt-4">
       <dt class="font-medium text-gray-900">クーポン名</dt>
-      <dd class="text-gray-700 sm:col-span-2"><%= @voucher.title%></dd>
+      <dd class="text-gray-700"><%= @voucher.title%></dd>
     </div>
     <% if @voucher.code_text.present? %>
-    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+    <div class="mt-4">
       <dt class="font-medium text-gray-900">クーポン（コード）</dt>
-      <dd class="text-gray-700 sm:col-span-2"><%= @voucher.code_text %></dd>
+      <dd class="text-gray-700"><%= @voucher.code_text %></dd>
     </div>
     <% else %>
-    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+    <div class="">
       <dt class="font-medium text-gray-900">クーポン（URL）</dt>
-      <dd class="text-gray-700 sm:col-span-2"><%= @voucher.code_url %></dd>
+      <dd class="text-gray-700"><%= @voucher.code_url %></dd>
     </div>
     <% end %>
-    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+    <div class="mt-4">
       <dt class="font-medium text-gray-900">クーポン情報の公開範囲</dt>
-      <dd class="text-gray-700 sm:col-span-2"><%= @voucher.status %></dd>
+      <dd class="text-gray-700"><%= @voucher.status %></dd>
     </div>
 
-    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+    <div class="mt-4">
       <dt class="font-medium text-gray-900">日付</dt>
-      <dd class="text-gray-700 sm:col-span-2"><%= @voucher.date %></dd>
+      <dd class="text-gray-700"><%= @voucher.date %></dd>
     </div>
 
-    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+    <div class="mt-4">
       <dt class="font-medium text-gray-900">メモの詳細</dt>
-      <dd class="text-gray-700 sm:col-span-2"><%= @voucher.info %></dd>
+      <dd class="text-gray-700"><%= @voucher.info %></dd>
     </div>
   </dl>
+  <%= link_to voucher_path(@voucher.id), data:{ turbo_method: :delete } do %>
+  <button
+    type="button"
+    class="mt-8 inline-flex items-center gap-1.5 rounded-lg border border-red-500 bg-red-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-red-700 hover:bg-red-700 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 32 32"
+      fill="currentColor"
+      class="h-4 w-4"
+    >
+      <path
+        fill="currentColor"
+        d="M13.5 6.5V7h5v-.5a2.5 2.5 0 0 0-5 0Zm-2 .5v-.5a4.5 4.5 0 1 1 9 0V7H28a1 1 0 1 1 0 2h-1.508L24.6 25.568A5 5 0 0 1 19.63 30h-7.26a5 5 0 0 1-4.97-4.432L5.508 9H4a1 1 0 0 1 0-2h7.5Zm2.5 6.5a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0v-10Zm5-1a1 1 0 0 0-1 1v10a1 1 0 1 0 2 0v-10a1 1 0 0 0-1-1Z"
+      />
+    </svg>
+    削除
+  </button>
+  <%end%>
 </main>
