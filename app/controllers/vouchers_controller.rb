@@ -29,6 +29,10 @@ class VouchersController < ApplicationController
     redirect_to '/'
   end
 
+  def edit
+    @voucher =  Voucher.find(params[:id])
+  end
+
   private
 
   def voucher_params

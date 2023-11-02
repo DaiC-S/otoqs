@@ -30,20 +30,20 @@
       <dd class="text-gray-700"><%= @voucher.info %></dd>
     </div>
   </dl>
-
-  <button
-    type="button"
-    class="inline-flex items-center gap-1.5 rounded-lg border border-green-500 bg-green-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-green-700 hover:bg-green-700 focus:ring focus:ring-green-200 disabled:cursor-not-allowed disabled:border-green-300 disabled:bg-green-300"
-  >
-    編集
+  <button class="mt-4">
+    <%= link_to '編集', edit_voucher_path(@voucher.id), class:"items-center
+    gap-1.5 rounded-lg border border-green-500 bg-green-500 px-5 py-2.5
+    text-center text-sm font-medium text-white shadow-sm transition-all
+    hover:border-green-700 hover:bg-green-700 focus:ring focus:ring-green-200
+    disabled:cursor-not-allowed disabled:border-green-300 disabled:bg-green-300"
+    %>
   </button>
-
-  <%= link_to voucher_path(@voucher.id), data:{ turbo_method: :delete } do %>
-  <button
-    type="button"
-    class="mt-8 inline-flex items-center gap-1.5 rounded-lg border border-red-500 bg-red-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-red-700 hover:bg-red-700 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300"
-  >
-    削除
+  <button class="mt-4">
+    <%= link_to '削除', voucher_path(@voucher.id), data: { turbo_method: :false
+    }, class:"items-center gap-1.5 rounded-lg border border-red-500 bg-red-500
+    px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm
+    transition-all hover:border-red-700 hover:bg-red-700 focus:ring
+    focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300
+    disabled:bg-red-300" %>
   </button>
-  <%end%>
 </main>
