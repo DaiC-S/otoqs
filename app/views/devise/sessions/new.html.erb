@@ -2,23 +2,13 @@
 |f| %>
 
 <div class="flex items-center justify-center">
-  <div class="relative block">
-    <a class="text-white" href="#">
-      <span class="">Home</span>
-      <svg
-        class="h-1 sm:h-2.5"
-        viewBox="0 0 10 10"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      ></svg>
-    </a>
-
-    <h2 class="mt-6 text-2xl font-bold text-gray-500 sm:text-3xl md:text-4xl">
+  <div class="p-6 relative block">
+    <h2 class="text-2xl font-bold text-gray-500 sm:text-3xl md:text-4xl">
       おかえりなさい！
     </h2>
 
     <p class="mt-4 leading-relaxed text-gray-500">
-      以下の必須項目を正しく入力してください。
+      以下の項目を正しく入力し、ログインしてください。
     </p>
 
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -45,8 +35,16 @@
 
     <div class="mt-16">
       <%= f.submit 'ログインする', class:"rounded-md border border-black
-      bg-black px-12 py-3 text-sm font-medium text-white transition
+      bg-black w-full py-3 text-sm font-medium text-white transition
       hover:bg-transparent hover:text-black" %>
+    </div>
+
+    <div class="mt-4 text-center text-sm">
+      <p>
+        会員登録がお済みでない方は<%= link_to 'こちら',
+        new_user_registration_path, class:"text-blue-500 mx-0.5 no-underline
+        hover:underline"%>
+      </p>
     </div>
   </div>
 </div>
