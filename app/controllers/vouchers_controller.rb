@@ -1,6 +1,7 @@
 class VouchersController < ApplicationController
 
   before_action :move_to_index, except: [:index]
+  before_action :set_voucher, only: [:show, :destroy, :edit, :update]
 
   def index
     @vouchers = Voucher.all
@@ -20,23 +21,32 @@ class VouchersController < ApplicationController
   end
 
   def show
-    @voucher = Voucher.find(params[:id])
   end
 
   def destroy
-    @voucher = Voucher.find(params[:id])
     @voucher.destroy
     redirect_to '/'
   end
 
   def edit
-    @voucher =  Voucher.find(params[:id])
+  end
+
+  def update
+    if @voucher.update(voucher_params)
+      redirect_to voucher_path(@voucher.id)
+    else
+      render '/vouchers/edit', status: :unprocessable_entity
+    end
   end
 
   private
 
   def voucher_params
     params.require(:voucher).permit(:title, :code_text, :code_url, :status, :info, :date).merge(user_id: current_user.id)
+  end
+
+  def set_voucher
+    @voucher = Voucher.find(params[:id])
   end
 
   def move_to_index
