@@ -1,6 +1,5 @@
 class VouchersController < ApplicationController
 
-  before_action :move_to_index, except: [:index]
   before_action :set_voucher, only: [:show, :destroy, :edit, :update]
 
   def index
@@ -21,6 +20,9 @@ class VouchersController < ApplicationController
   end
 
   def show
+    if current_user.id != @voucher.user_id
+      redirect_to '/'
+    end
   end
 
   def destroy
@@ -47,12 +49,6 @@ class VouchersController < ApplicationController
 
   def set_voucher
     @voucher = Voucher.find(params[:id])
-  end
-
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
   end
 
 end
