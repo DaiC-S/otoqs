@@ -9,6 +9,15 @@ class Voucher < ApplicationRecord
 
   validate :required_either_code_text_or_code_url
 
+  def status_text
+    case status
+    when 1
+      "非公開（あなただけ閲覧可能）"
+    when 2
+      "限定公開（あなたのマイページリンクを知っている人のみ閲覧可能）"
+    end
+  end
+
   private
 
   def required_either_code_text_or_code_url

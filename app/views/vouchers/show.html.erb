@@ -16,8 +16,8 @@
     </div>
     <% end %>
     <div class="mt-4">
-      <dt class="font-medium text-gray-900">クーポン情報の公開範囲</dt>
-      <dd class="text-gray-700"><%= @voucher.status %></dd>
+      <dt class="font-medium text-gray-900">クーポンの公開範囲</dt>
+      <dd class="text-gray-700"><%= @voucher.status_text %></dd>
     </div>
 
     <div class="mt-4">
@@ -30,7 +30,7 @@
       <dd class="text-gray-700"><%= @voucher.info %></dd>
     </div>
   </dl>
-  <button class="mt-4">
+  <button class="mt-12">
     <%= link_to '編集', edit_voucher_path(@voucher.id), class:"items-center
     gap-1.5 rounded-lg border border-green-500 bg-green-500 px-5 py-2.5
     text-center text-sm font-medium text-white shadow-sm transition-all
@@ -38,7 +38,7 @@
     disabled:cursor-not-allowed disabled:border-green-300 disabled:bg-green-300"
     %>
   </button>
-  <button class="mt-4">
+  <button class="mt-12">
     <%= link_to '削除', voucher_path(@voucher.id), data: { turbo_method: :delete
     }, class:"items-center gap-1.5 rounded-lg border border-red-500 bg-red-500
     px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm

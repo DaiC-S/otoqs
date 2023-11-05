@@ -36,20 +36,34 @@
     <div class="mt-6">
       <label
         for="status"
-        class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*必須']"
-        >クーポン情報の公開範囲</label
+        class="block my-1 text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*必須']"
+        >クーポンの公開範囲
+      </label>
+      <%= f.select :status, [["非公開", "1"], ["限定公開", "2"]]%>
+      <div
+        class="flex text-sky-500 rounded-md bg-primary-50 my-1 text-sm text-primary-500"
+        x-cloak
+        x-show="showAlert"
+        x-data="{ showAlert: true }"
       >
-      <%= f.select :status,
-      [["公開（クーポンまとめサイトの検索結果に表示されます）", "1"],
-      ["限定公開（あなたのマイページリンクを知っている人のみ閲覧可能）", "2"],
-      ["非公開（あなただけ閲覧可能）", "3"]], class: "rounded-md w-full sm:w-80"
-      %>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="mr-1 h-5 w-5 flex-shrink-0"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M19 10.5a8.5 8.5 0 11-17 0 8.5 8.5 0 0117 0zM8.25 9.75A.75.75 0 019 9h.253a1.75 1.75 0 011.709 2.13l-.46 2.066a.25.25 0 00.245.304H11a.75.75 0 010 1.5h-.253a1.75 1.75 0 01-1.709-2.13l.46-2.066a.25.25 0 00-.245-.304H9a.75.75 0 01-.75-.75zM10 7a1 1 0 100-2 1 1 0 000 2z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <div class="no-underline hover:underline">公開範囲とは？</div>
+      </div>
     </div>
 
     <div class="mt-6">
-      <label
-        for="info"
-        class="block mb-1 text-sm font-medium text-gray-700 after:ml-1 after:font-light after:text-gray-500 after:content-['「ひとことメモ」は他の人から見られません']"
+      <label for="info" class="block mb-1 text-sm font-medium text-gray-700"
         >メモ</label
       >
       <%= f.text_area :info, class: "rounded-md w-full sm:w-80", placeholder:
