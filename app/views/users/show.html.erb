@@ -1,0 +1,24 @@
+<main class="container mx-auto mt-16 px-5">
+  <p><%= @user_name %>さんのクーポン一覧</p>
+  <% @vouchers.each do |voucher| %>
+  <div class="">
+    <div class="mt-4">
+      <dt class="font-medium text-gray-900">クーポン名</dt>
+      <dd class="text-gray-700"><%= voucher.title%></dd>
+    </div>
+    <% if voucher.code_text.present? %>
+    <div class="mt-4">
+      <dt class="font-medium text-gray-900">クーポン（コード）</dt>
+      <dd class="text-gray-700"><%= voucher.code_text %></dd>
+    </div>
+    <% else %>
+    <div class="mt-4">
+      <dt class="font-medium text-gray-900">クーポン（URL）</dt>
+      <dd class="text-gray-700"><%= voucher.code_url %></dd>
+    </div>
+    <% end %>
+  </div>
+    </div>
+  <% end %>
+
+</main>
