@@ -3,18 +3,18 @@
   <% @vouchers.each do |voucher| %>
   <div class="">
     <div class="mt-4">
-      <dt class="font-medium text-gray-900">クーポン名</dt>
-      <dd class="text-gray-700"><%= voucher.title%></dd>
+      <div class="font-medium text-gray-900">クーポン名</div>
+      <div class="text-gray-700"><%= voucher.title%></div>
     </div>
     <% if voucher.code_text.present? %>
     <div class="mt-4">
-      <dt class="font-medium text-gray-900">クーポン（コード）</dt>
-      <dd class="text-gray-700"><%= voucher.code_text %></dd>
+      <div class="font-medium text-gray-900">クーポン（コード）</div>
+      <div class="text-gray-700"><%= voucher.code_text %></div>
     </div>
     <% else %>
     <div class="mt-4">
-      <dt class="font-medium text-gray-900">クーポン（URL）</dt>
-      <dd class="text-gray-700"><%= voucher.code_url %></dd>
+      <div class="font-medium text-gray-900">クーポン（URL）</div>
+      <div class="text-gray-700"><%= voucher.code_url %></div>
     </div>
     <% end %>
   </div>
