@@ -4,9 +4,8 @@ class UsersController < ApplicationController
 
     if user
       @user_name = user.user_name
-      @vouchers = user.vouchers
+      @vouchers = user.vouchers.where(status: 2)
     else
-      # ユーザーが見つからない場合の処理
       redirect_to root_path, alert: 'User not found'
     end
   end
