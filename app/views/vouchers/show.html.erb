@@ -1,20 +1,26 @@
-<main class="container mx-auto mt-16 px-5">
-  <dl class="">
-    <div class="mt-4">
+<main class="container p-8">
+  <dl class="border border-slate-700 p-4">
+    <div class="mt-0.5">
       <dt class="font-medium text-gray-900">クーポン名</dt>
       <dd class="text-gray-700"><%= @voucher.title%></dd>
     </div>
-    <% if @voucher.code_text.present? %>
-    <div class="mt-4">
-      <dt class="font-medium text-gray-900">クーポン（コード）</dt>
-      <dd class="text-gray-700"><%= @voucher.code_text %></dd>
+    <div class="mt-4 group text-gray-700">
+      <dt class="font-medium text-gray-900">クーポンコード</dt>
+      <span class="group-hover:inline" id="coupon-code-<%= @voucher.id %>"
+        ><%= @voucher.code_text.present? ? @voucher.code_text :
+        @voucher.code_url %></span
+      >
+      <button
+        class="opacity-0 group-hover:opacity-100 focus:opacity-100 rounded-lg border border-gray-600 bg-gray-600 px-4 py-1 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-gray-900 hover:bg-gray-900 focus:ring focus:ring-gray-200 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 mx-2"
+        onclick="copyToClipboard('<%= @voucher.id %>')"
+      >
+        Copy
+      </button>
+      <span
+        id="copy-confirm-<%= @voucher.id %>"
+        class="text-gray-500 text-sm hidden"
+      ></span>
     </div>
-    <% else %>
-    <div class="">
-      <dt class="font-medium text-gray-900">クーポン（URL）</dt>
-      <dd class="text-gray-700"><%= @voucher.code_url %></dd>
-    </div>
-    <% end %>
     <div class="mt-4">
       <dt class="font-medium text-gray-900">クーポンの公開範囲</dt>
       <dd class="text-gray-700"><%= @voucher.status_text %></dd>
@@ -30,7 +36,7 @@
       <dd class="text-gray-700"><%= @voucher.info %></dd>
     </div>
   </dl>
-  <button class="mt-12">
+  <button class="mt-6">
     <%= link_to '編集', edit_voucher_path(@voucher.id), class:"items-center
     gap-1.5 rounded-lg border border-green-500 bg-green-500 px-5 py-2.5
     text-center text-sm font-medium text-white shadow-sm transition-all
@@ -38,7 +44,7 @@
     disabled:cursor-not-allowed disabled:border-green-300 disabled:bg-green-300"
     %>
   </button>
-  <button class="mt-12">
+  <button class="mt-6">
     <%= link_to '削除', voucher_path(@voucher.id), data: { turbo_method: :delete
     }, class:"items-center gap-1.5 rounded-lg border border-red-500 bg-red-500
     px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm
@@ -47,3 +53,24 @@
     disabled:bg-red-300" %>
   </button>
 </main>
+<script>
+  function copyToClipboard(voucherId) {
+    const codeText = document.getElementById(
+      `coupon-code-${voucherId}`
+    ).innerText;
+    const textarea = document.createElement("textarea");
+    textarea.value = codeText;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    const confirmSpan = document.getElementById(`copy-confirm-${voucherId}`);
+    confirmSpan.innerText = "コピー完了🎉";
+    confirmSpan.style.display = "inline";
+
+    setTimeout(() => {
+      confirmSpan.style.display = "none";
+    }, 500);
+  }
+</script>
