@@ -12,9 +12,9 @@ class Voucher < ApplicationRecord
   def status_text
     case status
     when 1
-      "非公開（あなただけ閲覧可能）"
+      "非公開（あなただけ閲覧可能な状態）"
     when 2
-      "限定公開（あなたのマイページリンクを知っている人のみ閲覧可能）"
+      "限定公開（あなたのマイページリンクを知っている人のみ閲覧可能な状態）"
     end
   end
 
