@@ -1,23 +1,48 @@
-<main class="container mx-auto mt-16 px-5">
-  <p><%= @user_name %>さんのクーポン一覧</p>
-  <% @vouchers.each do |voucher| %>
-  <div class="">
-    <div class="mt-4">
-      <div class="font-medium text-gray-900">クーポン名</div>
-      <div class="text-gray-700"><%= voucher.title%></div>
-    </div>
-    <% if voucher.code_text.present? %>
-    <div class="mt-4">
-      <div class="font-medium text-gray-900">クーポン（コード）</div>
-      <div class="text-gray-700"><%= voucher.code_text %></div>
-    </div>
-    <% else %>
-    <div class="mt-4">
-      <div class="font-medium text-gray-900">クーポン（URL）</div>
-      <div class="text-gray-700"><%= voucher.code_url %></div>
-    </div>
-    <% end %>
+<main class="container p-10">
+  <div class="flex justify-center">
+    Shared by
+    <p class="font-bold mx-1.5"><%= @user_name %> 🎫</p>
   </div>
+  <% @vouchers.each do |voucher| %>
+  <div class="group border border-slate-700 p-4 rounded mt-4 relative">
+    <div class="font-medium text-gray-900"><%= voucher.title %></div>
+    <div class="text-gray-700">
+      <span class="hidden group-hover:inline" id="coupon-code-<%= voucher.id %>"
+        ><%= voucher.code_text.present? ? voucher.code_text : voucher.code_url
+        %></span
+      >
+      <button
+        class="opacity-0 group-hover:opacity-100 focus:opacity-100 rounded-lg border border-gray-900 bg-gray-900 px-4 py-1 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-gray-600 hover:bg-gray-600 focus:ring focus:ring-gray-200 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 absolute bottom-6 right-4"
+        onclick="copyToClipboard('<%= voucher.id %>')"
+      >
+        Copy
+      </button>
+      <span
+        id="copy-confirm-<%= voucher.id %>"
+        class="text-gray-500 text-sm hidden"
+      ></span>
     </div>
+  </div>
   <% end %>
 </main>
+<script>
+  function copyToClipboard(voucherId) {
+    const codeText = document.getElementById(
+      `coupon-code-${voucherId}`
+    ).innerText;
+    const textarea = document.createElement("textarea");
+    textarea.value = codeText;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    const confirmSpan = document.getElementById(`copy-confirm-${voucherId}`);
+    confirmSpan.innerText = "コピー完了🎉";
+    confirmSpan.style.display = "inline";
+
+    setTimeout(() => {
+      confirmSpan.style.display = "none";
+    }, 500);
+  }
+</script>
