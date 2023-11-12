@@ -9,28 +9,27 @@
         class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*必須']"
         >クーポン名</label
       >
-      <%= f.text_field :title, class: "rounded-md w-full sm:w-80", placeholder:
-      "例）Aショップ 友達紹介コード" %>
+      <%= f.text_field :title, class: "rounded-md w-full sm:w-80", placeholder: "例）Aショップ
+      友達紹介コード" %>
     </div>
 
     <div class="mt-6">
       <label
         for="code_text"
-        class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*コードかURLどちらか一方のみ必須']"
-        >クーポン (コードなど)</label
+        class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*テキストコードかURLどちらか一方のみ必須']"
+        >クーポン (テキストコード)</label
       >
-      <%= f.text_field :code_text, class: "rounded-md w-full sm:w-80",
-      placeholder: "例）ABC123" %>
+      <%= f.text_field :code_text, class: "rounded-md w-full sm:w-80", placeholder: "例）ABC123" %>
     </div>
 
     <div class="mt-6">
       <label
         for="code_url"
-        class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*コードかURLどちらか一方のみ必須']"
+        class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*テキストコードかURLどちらか一方のみ必須']"
         >クーポン (URL)</label
       >
-      <%= f.url_field :code_url, class: "rounded-md w-full sm:w-80",
-      placeholder: "例）https://example.com" %>
+      <%= f.url_field :code_url, class: "rounded-md w-full sm:w-80", placeholder:
+      "例）https://example.com" %>
     </div>
 
     <div class="mt-6">
@@ -61,10 +60,7 @@
               />
             </svg>
           </div>
-          <div
-            class="mt-1.5 cursor-pointer no-underline hover:underline"
-            id="statusDescOpen"
-          >
+          <div class="mt-1.5 cursor-pointer no-underline hover:underline" id="statusDescOpen">
             「公開範囲」とは？
           </div>
         </div>
@@ -72,9 +68,7 @@
           class="fixed left-0 top-0 hidden bg-transparent bg-slate-200 h-full w-full z-10"
           id="statusDescModal"
         >
-          <div
-            class="modal-content bg-white my-52 mx-auto w-3/4 shadow-md rounded-md"
-          >
+          <div class="modal-content bg-white my-52 mx-auto w-3/4 shadow-md rounded-md">
             <div
               class="modal-header bg-slate-500 pl-4 pr-6 py-4 flex justify-between font-bold text-white"
             >
@@ -89,8 +83,7 @@
                 >
               </p>
               <p class="mt-4">
-                ・限定公開：「あなた +
-                あなたのマイページリンクを知っている人」が閲覧できます<br />
+                ・限定公開：「あなた + あなたのマイページリンクを知っている人」が閲覧できます<br />
                 <span class="font-light text-gray-500"
                   >▷友達に共有したいクーポンは【限定公開】がオススメ！</span
                 >
@@ -102,11 +95,9 @@
     </div>
 
     <div class="mt-6">
-      <label for="info" class="block mb-1 text-sm font-medium text-gray-700"
-        >メモ</label
-      >
+      <label for="info" class="block mb-1 text-sm font-medium text-gray-700">詳細メモ</label>
       <%= f.text_area :info, class: "rounded-md w-full sm:w-80", placeholder:
-      "例）新規登録してくれたら、1,000円OFF" %>
+      "例）紹介された側は、招待リンクから登録後1週間以内に買い物する必要アリ" %>
     </div>
 
     <div class="mt-6">
@@ -119,9 +110,8 @@
     </div>
 
     <div class="mt-16">
-      <%= f.submit '保存', class:"rounded-md border border-black bg-black px-12
-      py-3 text-sm font-medium text-white transition hover:bg-transparent
-      hover:text-black" %>
+      <%= f.submit '保存', class:"rounded-md border border-black bg-black px-12 py-3 text-sm
+      font-medium text-white transition hover:bg-transparent hover:text-black" %>
     </div>
   </div>
 </main>
