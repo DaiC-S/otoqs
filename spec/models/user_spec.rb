@@ -17,7 +17,11 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("User name can't be blank")
       end
-      it '同じuser_nameがデータベースに存在するため新規作成できない' do
+      it '同じuser_nameがデータベースに存在するためアカウントを新規作成できない' do
+      end
+      it 'passwordが半角英字のみの場合、アカウントを新規作成できない' do
+      end
+      it 'passwordが半角数字のみの場合、アカウントを新規作成できない' do
       end
     end
   end
