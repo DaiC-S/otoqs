@@ -1,5 +1,5 @@
 class VouchersController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :set_voucher, only: [:show, :destroy, :edit, :update]
 
   def index
