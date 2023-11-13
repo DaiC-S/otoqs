@@ -1,4 +1,51 @@
-<main class="container p-10">
+<header class="py-1 px-10">
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <div class="text-left">
+        <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
+          Let's share, <%= @user_name %>!
+        </h1>
+
+        <p class="mt-3 text-sm text-gray-500">
+          ・ボタンを押すと、あなたのマイページのURLをコピーできます。
+        </p>
+        <p class="mt-1.5 text-sm text-gray-500">
+          ・共有されるのは「限定公開」に設定したクーポンのみです。
+        </p>
+      </div>
+
+      <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
+        <button
+          class="inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 px-5 py-3 text-gray-500 transition hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:ring"
+          type="button"
+        >
+          <span class="text-sm font-medium"> マイページのURL </span>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<div
+  class="mx-12 mt-1 mb-4 flex items-center gap-4 before:h-px before:flex-1 before:bg-gray-300 before:content-[''] text-gray-400 after:h-px after:flex-1 after:bg-gray-300 after:content-['']"
+>
+  お友達はここから下だけしか見えません
+</div>
+<main class="p-10">
   <div class="flex justify-center">
     Shared by
     <p class="font-bold mx-1.5"><%= @user_name %> 🎫</p>
@@ -8,8 +55,7 @@
     <div class="font-medium text-gray-900"><%= voucher.title %></div>
     <div class="text-gray-700">
       <span class="hidden group-hover:inline" id="coupon-code-<%= voucher.id %>"
-        ><%= voucher.code_text.present? ? voucher.code_text : voucher.code_url
-        %></span
+        ><%= voucher.code_text.present? ? voucher.code_text : voucher.code_url %></span
       >
       <button
         class="opacity-0 group-hover:opacity-100 focus:opacity-100 rounded-lg border border-gray-900 bg-gray-900 px-4 py-1 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-gray-600 hover:bg-gray-600 focus:ring focus:ring-gray-200 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 absolute bottom-6 right-4"
@@ -17,19 +63,14 @@
       >
         Copy
       </button>
-      <span
-        id="copy-confirm-<%= voucher.id %>"
-        class="text-gray-500 text-sm hidden"
-      ></span>
+      <span id="copy-confirm-<%= voucher.id %>" class="text-gray-500 text-sm hidden"></span>
     </div>
   </div>
   <% end %>
 </main>
 <script>
   function copyToClipboard(voucherId) {
-    const codeText = document.getElementById(
-      `coupon-code-${voucherId}`
-    ).innerText;
+    const codeText = document.getElementById(`coupon-code-${voucherId}`).innerText;
     const textarea = document.createElement("textarea");
     textarea.value = codeText;
     document.body.appendChild(textarea);
