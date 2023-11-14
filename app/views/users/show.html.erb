@@ -1,3 +1,4 @@
+<% if user_signed_in? && current_user.user_name == @user_name %>
 <header class="py-1 px-10">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <div class="sm:flex sm:items-center sm:justify-between">
@@ -32,6 +33,7 @@
 >
   お友達はここから下だけしか見えません
 </div>
+<% end %>
 <main class="p-10">
   <div class="flex justify-center">
     Shared by
