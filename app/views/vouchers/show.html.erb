@@ -1,14 +1,13 @@
 <main class="container p-8">
   <dl class="border border-slate-700 p-4">
     <div class="mt-0.5">
-      <dt class="font-medium text-gray-900">クーポン名</dt>
+      <dt class="font-medium text-gray-900">トクテン名</dt>
       <dd class="text-gray-700"><%= @voucher.title%></dd>
     </div>
     <div class="mt-4 group text-gray-700">
-      <dt class="font-medium text-gray-900">クーポンコード</dt>
+      <dt class="font-medium text-gray-900">トクテン コード・URL</dt>
       <span class="group-hover:inline" id="coupon-code-<%= @voucher.id %>"
-        ><%= @voucher.code_text.present? ? @voucher.code_text :
-        @voucher.code_url %></span
+        ><%= @voucher.code_text.present? ? @voucher.code_text : @voucher.code_url %></span
       >
       <button
         class="opacity-0 group-hover:opacity-100 focus:opacity-100 rounded-lg border border-gray-600 bg-gray-600 px-4 py-1 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-gray-900 hover:bg-gray-900 focus:ring focus:ring-gray-200 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 mx-2"
@@ -16,13 +15,10 @@
       >
         Copy
       </button>
-      <span
-        id="copy-confirm-<%= @voucher.id %>"
-        class="text-gray-500 text-sm hidden"
-      ></span>
+      <span id="copy-confirm-<%= @voucher.id %>" class="text-gray-500 text-sm hidden"></span>
     </div>
     <div class="mt-4">
-      <dt class="font-medium text-gray-900">クーポンの公開範囲</dt>
+      <dt class="font-medium text-gray-900">トクテンの公開範囲</dt>
       <dd class="text-gray-700"><%= @voucher.status_text %></dd>
     </div>
 
@@ -32,32 +28,28 @@
     </div>
 
     <div class="mt-4">
-      <dt class="font-medium text-gray-900">メモの詳細</dt>
+      <dt class="font-medium text-gray-900">詳細の追加</dt>
       <dd class="text-gray-700"><%= @voucher.info %></dd>
     </div>
   </dl>
   <button class="mt-6">
-    <%= link_to '編集', edit_voucher_path(@voucher.id), class:"items-center
-    gap-1.5 rounded-lg border border-green-500 bg-green-500 px-5 py-2.5
-    text-center text-sm font-medium text-white shadow-sm transition-all
-    hover:border-green-700 hover:bg-green-700 focus:ring focus:ring-green-200
-    disabled:cursor-not-allowed disabled:border-green-300 disabled:bg-green-300"
-    %>
+    <%= link_to '編集', edit_voucher_path(@voucher.id), class:"items-center gap-1.5 rounded-lg
+    border border-green-500 bg-green-500 px-5 py-2.5 text-center text-sm font-medium text-white
+    shadow-sm transition-all hover:border-green-700 hover:bg-green-700 focus:ring
+    focus:ring-green-200 disabled:cursor-not-allowed disabled:border-green-300
+    disabled:bg-green-300" %>
   </button>
   <button class="mt-6">
-    <%= link_to '削除', voucher_path(@voucher.id), data: { turbo_method: :delete
-    }, class:"items-center gap-1.5 rounded-lg border border-red-500 bg-red-500
-    px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm
-    transition-all hover:border-red-700 hover:bg-red-700 focus:ring
-    focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300
+    <%= link_to '削除', voucher_path(@voucher.id), data: { turbo_method: :delete },
+    class:"items-center gap-1.5 rounded-lg border border-red-500 bg-red-500 px-5 py-2.5 text-center
+    text-sm font-medium text-white shadow-sm transition-all hover:border-red-700 hover:bg-red-700
+    focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300
     disabled:bg-red-300" %>
   </button>
 </main>
 <script>
   function copyToClipboard(voucherId) {
-    const codeText = document.getElementById(
-      `coupon-code-${voucherId}`
-    ).innerText;
+    const codeText = document.getElementById(`coupon-code-${voucherId}`).innerText;
     const textarea = document.createElement("textarea");
     textarea.value = codeText;
     document.body.appendChild(textarea);
