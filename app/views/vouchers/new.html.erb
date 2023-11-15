@@ -7,7 +7,7 @@
       <label
         for="title"
         class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*必須']"
-        >クーポン名</label
+        >トクテン名</label
       >
       <%= f.text_field :title, class: "rounded-md w-full sm:w-80", placeholder: "例）Aショップ
       友達紹介コード" %>
@@ -16,8 +16,9 @@
     <div class="mt-6">
       <label
         for="code_text"
-        class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*テキストコードかURLどちらか一方のみ必須']"
-        >クーポン (テキストコード)</label
+        class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*コードかURLどちらか一方のみ必須']"
+      >
+        トクテン（コード型）</label
       >
       <%= f.text_field :code_text, class: "rounded-md w-full sm:w-80", placeholder: "例）ABC123" %>
     </div>
@@ -25,8 +26,8 @@
     <div class="mt-6">
       <label
         for="code_url"
-        class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*テキストコードかURLどちらか一方のみ必須']"
-        >クーポン (URL)</label
+        class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*コードかURLどちらか一方のみ必須']"
+        >トクテン（URL型）</label
       >
       <%= f.url_field :code_url, class: "rounded-md w-full sm:w-80", placeholder:
       "例）https://example.com" %>
@@ -36,7 +37,7 @@
       <label
         for="status"
         class="block my-1 text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*必須']"
-        >クーポンの公開範囲
+        >トクテンの公開範囲
       </label>
       <%= f.select :status, [["非公開", "1"], ["限定公開", "2"]]%>
       <main>
@@ -79,13 +80,13 @@
               <p class="">
                 ・非公開：「あなた」だけ閲覧できます<br />
                 <span class="font-light text-gray-500"
-                  >▷自分で記録するだけのクーポンは【非公開】がオススメ！</span
+                  >▷自分で記録するだけの特典情報は【非公開】がオススメ！</span
                 >
               </p>
               <p class="mt-4">
                 ・限定公開：「あなた + あなたのマイページリンクを知っている人」が閲覧できます<br />
                 <span class="font-light text-gray-500"
-                  >▷友達に共有したいクーポンは【限定公開】がオススメ！</span
+                  >▷友達に共有したい特典情報は【限定公開】がオススメ！</span
                 >
               </p>
             </div>
@@ -95,7 +96,7 @@
     </div>
 
     <div class="mt-6">
-      <label for="info" class="block mb-1 text-sm font-medium text-gray-700">詳細メモ</label>
+      <label for="info" class="block mb-1 text-sm font-medium text-gray-700">詳細を追加</label>
       <%= f.text_area :info, class: "rounded-md w-full sm:w-80", placeholder:
       "例）紹介された側は、招待リンクから登録後1週間以内に買い物する必要アリ" %>
     </div>
