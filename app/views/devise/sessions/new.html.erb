@@ -1,11 +1,8 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do
-|f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 <div class="flex items-center justify-center">
-  <div class="p-6 relative block">
-    <h2 class="text-2xl font-bold text-gray-500 sm:text-3xl md:text-4xl">
-      おかえりなさい！
-    </h2>
+  <div class="p-10 relative block">
+    <h2 class="text-2xl font-bold text-gray-500 sm:text-3xl md:text-4xl">おかえりなさい！</h2>
 
     <p class="mt-4 leading-relaxed text-gray-500">
       以下の項目を正しく入力し、ログインしてください。
@@ -19,8 +16,8 @@
         class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >メールアドレス</label
       >
-      <%= f.email_field :email, class: "rounded-md w-80", placeholder:
-      "you@mail.com", autocomplete: "email" %>
+      <%= f.email_field :email, class: "rounded-md w-80", placeholder: "you@mail.com", autocomplete:
+      "email" %>
     </div>
 
     <div class="mt-2">
@@ -34,16 +31,14 @@
     </div>
 
     <div class="mt-16">
-      <%= f.submit 'ログインする', class:"rounded-md border border-black
-      bg-black w-full py-3 text-sm font-medium text-white transition
-      hover:bg-transparent hover:text-black" %>
+      <%= f.submit 'ログインする', class:"rounded-md border border-black bg-black w-full py-3
+      text-sm font-medium text-white transition hover:bg-transparent hover:text-black" %>
     </div>
 
     <div class="mt-4 text-center text-sm">
-      <p>
-        会員登録がお済みでない方は<%= link_to 'こちら',
-        new_user_registration_path, class:"text-blue-500 mx-0.5 no-underline
-        hover:underline"%>
+      <p class="text-gray-500">
+        まだアカウントを持っていないなら<%= link_to 'コチラ', new_user_registration_path,
+        class:"text-blue-500 ml-0.5 no-underline hover:underline"%>
       </p>
     </div>
   </div>
