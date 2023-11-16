@@ -1,41 +1,29 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
 <div class="flex items-center justify-center">
-  <div class="relative block">
-    <a class="text-white" href="#">
-      <span class="">Home</span>
-      <svg
-        class="h-1 sm:h-2.5"
-        viewBox="0 0 10 10"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      ></svg>
-    </a>
+  <div class="relative block p-10">
+    <h2 class="text-2xl font-bold text-gray-500 sm:text-4xl">OTOQS</h2>
 
-    <h2 class="mt-6 flex justify-center text-2xl font-bold text-gray-500 sm:text-3xl md:text-4xl">
-      OTOQS を始める
-    </h2>
-
-    <p class="mt-4 leading-relaxed text-gray-500">
-      必須項目を入力後「アカウントを作成する」ボタンを押してください。
+    <p class="mt-4 text-sm text-gray-500">
+      必須項目を入力後「アカウントを作成する」を押してください。
     </p>
 
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="mt-8">
+    <div class="mt-4">
       <label
         for="user_name"
-        class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
+        class="mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >ユーザー名</label
       >
-      <%= f.text_field :user_name, class: "block rounded-md w-80", placeholder:
-      "*半角英数字のみ・あとから変更不可", autofocus: true, autocomplete: "user_name" %>
+      <%= f.text_field :user_name, class: "block rounded-md w-80", placeholder: "*半角英数字のみ",
+      autofocus: true %>
     </div>
 
     <div class="mt-2">
       <label
         for="email"
-        class="block mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
+        class="mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >メールアドレス</label
       >
       <%= f.email_field :email, class: "block rounded-md w-80", placeholder: "you@mail.com",
@@ -45,42 +33,41 @@
     <div class="mt-2">
       <label
         for="password"
-        class="mb-1 block text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
+        class="mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >パスワード</label
       >
       <%= f.password_field :password, class: "block rounded-md w-80", placeholder:
-      "*半角英数字のみ・6字以上", autocomplete: "new-password" %>
+      "*半角英数字混合・6字以上" %>
     </div>
 
     <div class="mt-2">
       <label
         for="password_confirmation"
-        class="mb-1 block text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
+        class="mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >確認用パスワード</label
       >
       <%= f.password_field :password_confirmation, class: "block rounded-md w-80", placeholder:
-      "*パスワードをもう一度入力して下さい",autocomplete: "new-password" %>
+      "*パスワードをもう一度入力して下さい" %>
     </div>
 
-    <div class="mt-8">
+    <div class="mt-6">
       <p class="text-sm text-gray-500">
         By creating an account, you agree to our
-        <a href="#" class="text-gray-700 underline">terms and conditions</a>
+        <a href="#" class="text-gray-700 no-underline hover:underline">terms and conditions</a>
         and
-        <a href="#" class="text-gray-700 underline">privacy policy</a>.
+        <a href="#" class="text-gray-700 no-underline hover:underline">privacy policy</a>.
       </p>
     </div>
 
-    <div class="mt-16">
-      <%= f.submit 'アカウントを作成する', class:"rounded-md border border-teal-500 bg-teal-500
-      px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-teal-500"
-      %>
+    <div class="mt-6 flex justify-center sm:block">
+      <%= f.submit 'アカウントを作成する', class:"rounded-md border border-black bg-black py-3 px-12
+      text-sm font-medium text-white transition hover:bg-transparent hover:text-black" %>
     </div>
 
     <div class="mt-4">
       <p class="text-sm text-gray-500">
-        すでにアカウントを持っていますか? <%= link_to 'ログイン', new_user_session_path, class:
-        "text-gray-700 underline" %>
+        すでにアカウントを持っているなら<%= link_to 'コチラ', new_user_session_path, class: "ml-0.5
+        text-blue-500 no-underline hover:underline" %>
       </p>
     </div>
   </div>
