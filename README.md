@@ -1,9 +1,3 @@
-:::note info
-
-最終更新：2023-11-15
-
-:::
-
 # アプリケーション名
 
 OTOQS
@@ -31,7 +25,7 @@ OTOQS
 |    メールアドレス     | client1@mail.com |
 |      パスワード       |     287k404      |
 
-# 利用方法
+# 利用方法【GIF】
 
 このアプリケーションの使い方は、主に 3 つあります。
 
@@ -41,6 +35,8 @@ OTOQS
 
 ## 使い方 ①：トクテンの記録
 
+[![Image from Gyazo](https://i.gyazo.com/061b21ded7ab16251d3165c7e04ca8fb.gif)](https://gyazo.com/061b21ded7ab16251d3165c7e04ca8fb)
+
 1. 新規登録/ログイン画面からアカウント作成/ログインする
 2. トップページ画面下中央の「+」ボタンを押す
 3. 記録したいトクテンの情報を項目ごとに入力する
@@ -49,19 +45,25 @@ OTOQS
 
 ## 使い方 ②：トクテンのリマインド
 
+[![Image from Gyazo](https://i.gyazo.com/d4b7fbb4d0907c5ee83a7d6f14197c4b.gif)](https://gyazo.com/d4b7fbb4d0907c5ee83a7d6f14197c4b)
+
 1. トクテンの新規保存/編集時に「日付」を設定する
 2. トクテン一覧（トップページ）から保存したトクテンに設定した日付を確認できる
 
 ## 使い方 ③：トクテンの共有
 
-③-A：共有する側（ログイン中のユーザー自身）
+### ③-A：共有する側（ログイン中のユーザー自身）
+
+[![Image from Gyazo](https://i.gyazo.com/186e5390ebcf1c08d26392c85b7d49bb.gif)](https://gyazo.com/186e5390ebcf1c08d26392c85b7d49bb)
 
 1. 画面右上の「マイトクテンをシェア」ボタンを押す
 2. 上から「マイトクテンの URL」ボタン・区切り線・「限定公開」に設定したトクテン一覧、の 3 つが表示される
 3. 「マイトクテンの URL」ボタンを押すと、マイページ詳細の URL（今いるページのアドレスバーに表示されている URL）をコピーできる
 4. 3 でコピーした URL を URL リンク共有可能なサービスにペーストすれば、「限定公開」に設定したトクテンのみを共有できる
 
-③-B：共有される側（ログイン中の他ユーザー + 未ログインユーザー）
+### ③-B：共有される側（ログイン中の他ユーザー + 未ログインユーザー）
+
+[![Image from Gyazo](https://i.gyazo.com/9f2d053e9068102910f5ec35696974f7.gif)](https://gyazo.com/9f2d053e9068102910f5ec35696974f7)
 
 1. 共有された「マイトクテンの URL」を開くと、共有する側が「限定公開」に設定したトクテンをすべて閲覧できる
 2. トクテン右側の「コピー」ボタンを押すと、そのトクテンを利用するためのテキストコードや URL をコピーできる
@@ -78,13 +80,11 @@ OTOQS
 
 [要件定義書](https://calm-pizza-1c8.notion.site/OTOQS-5e4b159eb15c4ff9a9adba3f7d3a6694?pvs=4)
 
-# 実装した機能についての画像や GIF およびその説明
-
 # 実装予定の機能
 
-# データベース設計
+# データベース設計【ER 図】
 
-[![Image from Gyazo](https://i.gyazo.com/0db9cf18f024aa20d0bcd2dcc7535abb.png)](https://gyazo.com/0db9cf18f024aa20d0bcd2dcc7535abb)
+[![Image from Gyazo](https://i.gyazo.com/215eb3ae2204d9b86d9980ed38a40d91.jpg)](https://gyazo.com/215eb3ae2204d9b86d9980ed38a40d91)
 
 # 画面遷移
 
