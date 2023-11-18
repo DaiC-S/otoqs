@@ -17,13 +17,13 @@ OTOQS
 
 # テスト用アカウント
 
-|       Category        |      Value       |
-| :-------------------: | :--------------: |
-|     Basic 認証 ID     |       dzs        |
-| Basic 認証 パスワード |      40544       |
-|      ユーザー名       |     client1      |
-|    メールアドレス     | client1@mail.com |
-|      パスワード       |     287k404      |
+|           Category            |      Value       |
+| :---------------------------: | :--------------: |
+|    Basic Authentication ID    |       dzs        |
+| Basic Authentication Password |      40544       |
+|           user_name           |     client1      |
+|             email             | client1@mail.com |
+|           password            |     287k404      |
 
 # 利用方法【GIF】
 
@@ -103,6 +103,15 @@ OTOQS
 # 画面遷移
 
 # 開発環境
+
+|    Category    |     Technology Stack     |
+| :------------: | :----------------------: |
+|    Frontend    | JavaScript, Tailwind CSS |
+|    Backend     |   Ruby, Ruby on Rails    |
+| Infrastructure |          render          |
+|    Database    |        PostgreSQL        |
+|      Test      |       RSpec, MySQL       |
+|     CI/CD      |          GitHub          |
 
 # ローカルでの動作方法
 
