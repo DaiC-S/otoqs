@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root "vouchers#index"
-  resources :vouchers
+  resources :vouchers do
+    put :update_order, on: :collection
+  end
   resources :users, only: :show
   get '/users/:user_name' => 'users#show'
 end

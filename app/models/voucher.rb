@@ -18,6 +18,8 @@ class Voucher < ApplicationRecord
     end
   end
 
+  default_scope { order(position: :asc) }
+
   private
 
   def required_either_code_text_or_code_url

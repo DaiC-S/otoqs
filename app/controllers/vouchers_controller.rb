@@ -41,6 +41,13 @@ class VouchersController < ApplicationController
     end
   end
 
+  def update_order
+    params[:voucher_order].each_with_index do |id, index|
+      current_user.vouchers.find(id).update(position: index)
+    end
+    head :ok
+  end
+
   private
 
   def voucher_params

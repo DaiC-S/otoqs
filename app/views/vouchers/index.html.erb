@@ -29,9 +29,13 @@
     </div>
   </header>
   <main class="container mx-auto p-4">
-    <div>
-      <% @vouchers.each do |voucher| %> <% if voucher.user_id == current_user.id %>
-      <div class="mx-4 mt-2 rounded-lg bg-white shadow">
+    <div data-controller="dragdrop">
+      <% @vouchers.order(:position).each do |voucher| %> <% if voucher.user_id == current_user.id %>
+      <div
+        id="voucher_<%= voucher.id %>"
+        data-id="<%= voucher.id %>"
+        class="mx-4 mt-2 rounded-lg bg-white shadow"
+      >
         <%= link_to voucher_path(voucher.id) do %>
         <div class="p-4">
           <h3 class="text-xl font-medium text-gray-900"><%= voucher.title %></h3>
