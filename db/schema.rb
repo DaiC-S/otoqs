@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_26_120545) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_29_005118) do
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "user_name", null: false
     t.string "email", default: "", null: false
@@ -36,6 +36,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_26_120545) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
+    t.string "shared_benefit"
+    t.text "shared_action"
     t.index ["user_id"], name: "index_vouchers_on_user_id"
   end
 
