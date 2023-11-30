@@ -51,7 +51,7 @@ class VouchersController < ApplicationController
   private
 
   def voucher_params
-    params.require(:voucher).permit(:title, :code_text, :code_url, :status, :info, :date).merge(user_id: current_user.id)
+    params.require(:voucher).permit(:title, :code_text, :code_url, :status, :info, :date, :position, :shared_benefit, :shared_action).merge(user_id: current_user.id)
   end
 
   def set_voucher
