@@ -1,21 +1,25 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<div class="flex items-center justify-center">
-  <div class="p-10 relative block">
-    <h2 class="text-2xl font-bold text-gray-500 sm:text-4xl">おかえりなさい</h2>
+<div class="p-10 flex items-center justify-center">
+  <div>
+    <div class="mt-4">
+      <h2 class="text-2xl flex justify-center sm:block font-bold text-gray-500 sm:text-4xl">
+        おかえりなさい
+      </h2>
 
-    <p class="mt-4 text-gray-500">以下の項目を正しく入力し、ログインしてください。</p>
+      <p class="mt-2 text-sm text-gray-500">必須項目を入力後「ログイン」を押してください。</p>
+    </div>
 
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="mt-2">
+    <div class="mt-4">
       <label
         for="email"
         class="mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >メールアドレス</label
       >
       <%= f.email_field :email, class: "block rounded-md w-80", placeholder: "you@mail.com",
-      autocomplete: "email" %>
+      autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="mt-2">
@@ -25,15 +29,15 @@
         >パスワード</label
       >
       <%= f.password_field :password, class: "block rounded-md w-80", placeholder:
-      "*半角英数字混合・6字以上" %>
+      "*半角で入力してください。" %>
     </div>
 
-    <div class="mt-6 flex justify-center sm:block">
-      <%= f.submit 'ログインする', class:"rounded-md border border-black bg-black px-12 py-3 text-sm
+    <div class="mt-4 flex justify-center sm:block">
+      <%= f.submit 'ログイン', class:"rounded-md border border-black bg-black px-10 py-3 text-sm
       font-medium text-white transition hover:bg-transparent hover:text-black" %>
     </div>
 
-    <div class="mt-4 text-sm">
+    <div class="mt-4 flex justify-center sm:block text-sm">
       <p class="text-gray-500">
         まだアカウントを持っていないなら<%= link_to 'コチラ', new_user_registration_path,
         class:"text-blue-500 ml-0.5 no-underline hover:underline"%>
