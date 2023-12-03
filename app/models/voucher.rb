@@ -7,6 +7,8 @@ class Voucher < ApplicationRecord
     validates :status
   end
 
+  validate :only_either_code_text_or_code_url
+
   def status_text
     case status
     when 1
@@ -24,5 +26,9 @@ class Voucher < ApplicationRecord
   #  return if code_text.present? ^ code_url.present?
   #  errors.add(:base, 'コードまたはURLのどちらか一方のみを入力してください')
   # end
+
+  def only_either_code_text_or_code_url
+    errors.add(:base, 'コードまたはURLのどちらか一方のみを入力してください') if code_text.present? && code_url.present?
+  end
 
 end
