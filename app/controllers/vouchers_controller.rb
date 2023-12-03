@@ -3,7 +3,7 @@ class VouchersController < ApplicationController
   before_action :set_voucher, only: [:show, :destroy, :edit, :update]
 
   def index
-    @vouchers = Voucher.all
+    @vouchers = Voucher.order("created_at DESC")
   end
 
   def new
