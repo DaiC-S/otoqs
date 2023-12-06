@@ -1,5 +1,5 @@
-<div>
-  <header class="flex justify-between p-4">
+<div class="p-8">
+  <header class="container flex justify-between">
     <div>
       <%= link_to '/' do%>
       <div class="inline-flex items-center gap-x-1 text-sm text-blue-500 hover:text-blue-300">
@@ -21,7 +21,7 @@
       </div>
       <% end %>
     </div>
-    <div class="navbar relative text-blue-500 hover:text-blue-300">
+    <div class="navbar relative text-blue-500 hover:text-blue-300 mr-[10%] sm:mr-[50%]">
       <ul>
         <li class="nav-button" id="lists">
           <svg
@@ -41,29 +41,31 @@
         </li>
       </ul>
       <ul
-        class="show-lists absolute bg-white rounded-md p-2.5 divide-y divide-solid hidden"
+        class="show-lists absolute top-4.5 -left-10 bg-white rounded-md p-2.5 divide-y divide-solid hidden"
         id="pullDown"
       >
-        <li class="inline-blockblock w-10">
+        <li class="inline-blockblock w-10 text-center">
           <%= link_to '編集', edit_voucher_path(@voucher.id), class:"text-gray-600
           hover:text-gray-300 font-medium" %>
         </li>
-        <li class="inline-blockblock w-10">
+        <li class="inline-blockblock w-10 text-center">
           <%= link_to '削除', voucher_path(@voucher.id), data: { turbo_method: :delete },
           class:"text-gray-600 hover:text-gray-300 font-medium" %>
         </li>
       </ul>
     </div>
   </header>
-  <main class="container p-4">
-    <div class="border border-slate-700 p-4">
+  <main class="container">
+    <div class="mt-4">
       <div class="">
-        <div class="font-medium text-gray-900">トクテン名</div>
-        <div class="text-gray-700"><%= @voucher.title%></div>
+        <div class="font-light text-gray-500">トクテン名</div>
+        <div class="font-semibold text-gray-800"><%= @voucher.title%></div>
       </div>
-      <div class="mt-4 group text-gray-700">
-        <div class="font-medium text-gray-900">トクテン *コード型</div>
-        <span class="group-hover:inline" id="coupon-code-<%= @voucher.id %>"
+      <div class="mt-4 group">
+        <div class="font-light text-gray-500">トクテン *コード型</div>
+        <span
+          class="group-hover:inline font-semibold text-gray-800"
+          id="coupon-code-<%= @voucher.id %>"
           ><%= @voucher.code_text %></span
         >
         <button
@@ -74,9 +76,11 @@
         </button>
         <span id="copy-confirm-<%= @voucher.id %>" class="text-gray-500 text-sm hidden"></span>
       </div>
-      <div class="mt-4 group text-gray-700">
-        <div class="font-medium text-gray-900">トクテン *URL型</div>
-        <span class="group-hover:inline" id="coupon-code-<%= @voucher.id %>"
+      <div class="mt-4 group">
+        <div class="font-light text-gray-500">トクテン *URL型</div>
+        <span
+          class="group-hover:inline font-semibold text-gray-800"
+          id="coupon-code-<%= @voucher.id %>"
           ><%= @voucher.code_url %></span
         >
         <button
@@ -88,24 +92,24 @@
         <span id="copy-confirm-<%= @voucher.id %>" class="text-gray-500 text-sm hidden"></span>
       </div>
       <div class="mt-4">
-        <div class="font-medium text-gray-900">公開範囲</div>
-        <div class="text-gray-700"><%= @voucher.status_text %></div>
+        <div class="font-light text-gray-500">公開範囲</div>
+        <div class="font-semibold text-gray-800"><%= @voucher.status_text %></div>
       </div>
       <div class="mt-4">
-        <div class="font-medium text-gray-900">お友達（共有された側）のトクテン</div>
-        <div class="text-gray-700"><%= @voucher.shared_benefit%></div>
+        <div class="font-light text-gray-500">お友達（共有された側）のトクテン</div>
+        <div class="font-semibold text-gray-800"><%= @voucher.shared_benefit%></div>
       </div>
       <div class="mt-4">
-        <div class="font-medium text-gray-900">お友達（共有された側）のアクション</div>
-        <div class="text-gray-700"><%= @voucher.shared_action%></div>
+        <div class="font-light text-gray-500">お友達（共有された側）のアクション</div>
+        <div class="font-semibold text-gray-800"><%= @voucher.shared_action%></div>
       </div>
       <div class="mt-4">
-        <div class="font-medium text-gray-900">メモ（詳細の追加）</div>
-        <div class="text-gray-700"><%= @voucher.info %></div>
+        <div class="font-light text-gray-500">メモ（詳細の追加）</div>
+        <div class="font-semibold text-gray-800"><%= @voucher.info %></div>
       </div>
       <div class="mt-4">
-        <div class="font-medium text-gray-900">日付</div>
-        <div class="text-gray-700"><%= @voucher.date %></div>
+        <div class="font-light text-gray-500">日付</div>
+        <div class="font-semibold text-gray-800"><%= @voucher.date %></div>
       </div>
     </div>
   </main>
