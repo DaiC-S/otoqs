@@ -1,20 +1,58 @@
 <div>
-  <header>
-    <div class="flex justify-end">
-      <button class="m-4 block">
-        <%= link_to '編集', edit_voucher_path(@voucher.id), class:"items-center rounded-lg border
-        border-green-500 bg-green-500 px-5 py-2.5 text-center text-sm font-medium text-white
-        shadow-sm transition-all hover:border-green-700 hover:bg-green-700 focus:ring
-        focus:ring-green-200 disabled:cursor-not-allowed disabled:border-green-300
-        disabled:bg-green-300" %>
-      </button>
-      <button class="m-4 block">
-        <%= link_to '削除', voucher_path(@voucher.id), data: { turbo_method: :delete },
-        class:"items-center rounded-lg border border-red-500 bg-red-500 px-5 py-2.5 text-center
-        text-sm font-medium text-white shadow-sm transition-all hover:border-red-700
-        hover:bg-red-700 focus:ring focus:ring-red-200 disabled:cursor-not-allowed
-        disabled:border-red-300 disabled:bg-red-300" %>
-      </button>
+  <header class="flex justify-between p-4">
+    <div>
+      <%= link_to '/' do%>
+      <div class="inline-flex items-center gap-x-1 text-sm text-blue-500 hover:text-blue-300">
+        <svg
+          class="flex-shrink-0 w-4 h-4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+        戻る
+      </div>
+      <% end %>
+    </div>
+    <div class="navbar relative text-blue-500 hover:text-blue-300">
+      <ul>
+        <li class="nav-button" id="lists">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-5 w-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
+            />
+          </svg>
+        </li>
+      </ul>
+      <ul
+        class="show-lists absolute bg-white rounded-md p-2.5 divide-y divide-solid hidden"
+        id="pullDown"
+      >
+        <li class="inline-blockblock w-10">
+          <%= link_to '編集', edit_voucher_path(@voucher.id), class:"text-gray-600
+          hover:text-gray-300 font-medium" %>
+        </li>
+        <li class="inline-blockblock w-10">
+          <%= link_to '削除', voucher_path(@voucher.id), data: { turbo_method: :delete },
+          class:"text-gray-600 hover:text-gray-300 font-medium" %>
+        </li>
+      </ul>
     </div>
   </header>
   <main class="container p-4">
@@ -71,6 +109,9 @@
       </div>
     </div>
   </main>
+  <footer class="fixed bottom-0 w-full p-1">
+    <div class="text-center text-gray-50">OTOQS</div>
+  </footer>
 </div>
 <script>
   function copyToClipboard(voucherId) {
