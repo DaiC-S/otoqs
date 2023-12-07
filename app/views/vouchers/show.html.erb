@@ -61,35 +61,52 @@
         <div class="font-light text-gray-500">トクテン名</div>
         <div class="font-semibold text-gray-800"><%= @voucher.title%></div>
       </div>
-      <div class="mt-4 group">
+      <div class="mt-4">
         <div class="font-light text-gray-500">トクテン *コード型</div>
-        <span
-          class="group-hover:inline font-semibold text-gray-800"
-          id="coupon-code-<%= @voucher.id %>"
-          ><%= @voucher.code_text %></span
+        <% if @voucher.code_text.present? %>
+        <span class="font-semibold text-gray-800"><%= @voucher.code_text %></span>
+        <%= button_tag type: 'button', class: 'clipboard-button', data: { controller: "clipboard",
+        action: "click->clipboard#copy", clipboard_content_value: @voucher.code_text } do %>
+        <svg
+          class="w-4 h-4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-        <button
-          class="opacity-0 group-hover:opacity-100 focus:opacity-100 rounded-lg border border-gray-600 bg-gray-600 px-4 py-1 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-gray-900 hover:bg-gray-900 focus:ring focus:ring-gray-200 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 mx-2"
-          onclick="copyToClipboard('<%= @voucher.id %>')"
-        >
-          Copy
-        </button>
-        <span id="copy-confirm-<%= @voucher.id %>" class="text-gray-500 text-sm hidden"></span>
+          <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+        </svg>
+        <% end %> <% end %>
       </div>
-      <div class="mt-4 group">
+
+      <div class="mt-4">
         <div class="font-light text-gray-500">トクテン *URL型</div>
-        <span
-          class="group-hover:inline font-semibold text-gray-800"
-          id="coupon-code-<%= @voucher.id %>"
-          ><%= @voucher.code_url %></span
+        <% if @voucher.code_url.present? %>
+        <span class="font-semibold text-gray-800"><%= @voucher.code_url %></span>
+        <%= button_tag type: 'button', class: 'clipboard-button', data: { controller: "clipboard",
+        action: "click->clipboard#copy", clipboard_content_value: @voucher.code_url } do %>
+        <svg
+          class="w-4 h-4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-        <button
-          class="opacity-0 group-hover:opacity-100 focus:opacity-100 rounded-lg border border-gray-600 bg-gray-600 px-4 py-1 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-gray-900 hover:bg-gray-900 focus:ring focus:ring-gray-200 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 mx-2"
-          onclick="copyToClipboard('<%= @voucher.id %>')"
-        >
-          Copy
-        </button>
-        <span id="copy-confirm-<%= @voucher.id %>" class="text-gray-500 text-sm hidden"></span>
+          <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+        </svg>
+        <% end %> <% end %>
       </div>
       <div class="mt-4">
         <div class="font-light text-gray-500">公開範囲</div>
@@ -117,22 +134,3 @@
     <div class="text-center text-gray-50">OTOQS</div>
   </footer>
 </div>
-<script>
-  function copyToClipboard(voucherId) {
-    const codeText = document.getElementById(`coupon-code-${voucherId}`).innerText;
-    const textarea = document.createElement("textarea");
-    textarea.value = codeText;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-
-    const confirmSpan = document.getElementById(`copy-confirm-${voucherId}`);
-    confirmSpan.innerText = "コピー完了🎉";
-    confirmSpan.style.display = "inline";
-
-    setTimeout(() => {
-      confirmSpan.style.display = "none";
-    }, 500);
-  }
-</script>
