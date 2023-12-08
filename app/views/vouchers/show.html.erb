@@ -58,13 +58,13 @@
   <main class="container">
     <div class="mt-4">
       <div class="">
-        <div class="font-light text-gray-500">トクテン名</div>
-        <div class="font-semibold text-gray-800"><%= @voucher.title%></div>
+        <div class="font-thin text-gray-600">トクテン名</div>
+        <div class="font-medium text-gray-900"><%= @voucher.title%></div>
       </div>
       <div class="mt-4">
-        <div class="font-light text-gray-500">トクテン *コード型</div>
+        <div class="font-thin text-gray-600">トクテン *コード型</div>
         <% if @voucher.code_text.present? %>
-        <span class="font-semibold text-gray-800"><%= @voucher.code_text %></span>
+        <span class="font-medium text-gray-900"><%= @voucher.code_text %></span>
         <%= button_tag type: 'button', class: 'clipboard-button', data: { controller: "clipboard",
         action: "click->clipboard#copy", clipboard_content_value: @voucher.code_text } do %>
         <svg
@@ -86,9 +86,9 @@
       </div>
 
       <div class="mt-4">
-        <div class="font-light text-gray-500">トクテン *URL型</div>
+        <div class="font-thin text-gray-600">トクテン *URL型</div>
         <% if @voucher.code_url.present? %>
-        <span class="font-semibold text-gray-800"><%= @voucher.code_url %></span>
+        <span class="font-medium text-gray-900"><%= @voucher.code_url %></span>
         <%= button_tag type: 'button', class: 'clipboard-button', data: { controller: "clipboard",
         action: "click->clipboard#copy", clipboard_content_value: @voucher.code_url } do %>
         <svg
@@ -109,24 +109,24 @@
         <% end %> <% end %>
       </div>
       <div class="mt-4">
-        <div class="font-light text-gray-500">公開範囲</div>
-        <div class="font-semibold text-gray-800"><%= @voucher.status_text %></div>
+        <div class="font-thin text-gray-600">公開範囲</div>
+        <div class="font-medium text-gray-900"><%= @voucher.status_text %></div>
       </div>
       <div class="mt-4">
-        <div class="font-light text-gray-500">お友達（共有された側）のトクテン</div>
-        <div class="font-semibold text-gray-800"><%= @voucher.shared_benefit%></div>
+        <div class="font-thin text-gray-600">お友達（共有された側）のトクテン</div>
+        <div class="font-medium text-gray-900"><%= @voucher.shared_benefit%></div>
       </div>
       <div class="mt-4">
-        <div class="font-light text-gray-500">お友達（共有された側）のアクション</div>
-        <div class="font-semibold text-gray-800 whitespace-pre"><%= @voucher.shared_action%></div>
+        <div class="font-thin text-gray-600">お友達（共有された側）のアクション</div>
+        <div class="font-medium text-gray-900 whitespace-pre"><%= @voucher.shared_action%></div>
       </div>
       <div class="mt-4">
-        <div class="font-light text-gray-500">メモ（詳細の追加）</div>
-        <div class="font-semibold text-gray-800"><%= @voucher.info %></div>
+        <div class="font-thin text-gray-600">メモ（詳細の追加）</div>
+        <div class="font-medium text-gray-900"><%= @voucher.info %></div>
       </div>
       <div class="mt-4">
-        <div class="font-light text-gray-500">日付</div>
-        <div class="font-semibold text-gray-800"><%= @voucher.date %></div>
+        <div class="font-thin text-gray-600">日付</div>
+        <div class="font-medium text-gray-900"><%= @voucher.date %></div>
       </div>
     </div>
   </main>
