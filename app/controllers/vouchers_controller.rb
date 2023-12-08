@@ -1,6 +1,7 @@
 class VouchersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_voucher, only: [:show, :destroy, :edit, :update]
+  before_action :redirect_top, only: [:show, :edit]
 
   def index
     @vouchers = Voucher.order("created_at DESC")
@@ -20,9 +21,6 @@ class VouchersController < ApplicationController
   end
 
   def show
-    if current_user.id != @voucher.user_id
-      redirect_to '/'
-    end
   end
 
   def destroy
@@ -56,6 +54,12 @@ class VouchersController < ApplicationController
 
   def set_voucher
     @voucher = Voucher.find(params[:id])
+  end
+
+  def redirect_top
+    if current_user.id != @voucher.user_id
+      redirect_to '/'
+    end
   end
 
 end
