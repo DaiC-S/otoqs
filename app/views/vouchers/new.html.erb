@@ -6,7 +6,7 @@
     <div class="mt-4">
       <label
         for="title"
-        class="block text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*必須']"
+        class="block text-sm font-light text-gray-500 after:ml-1 after:font-medium after:text-red-500 after:content-['*必須']"
         >トクテン名</label
       >
       <%= f.text_field :title, class: "rounded-md w-full sm:w-80", placeholder:
@@ -14,7 +14,7 @@
     </div>
     <div class="mt-4 block sm:flex sm:justify-center">
       <div class="">
-        <label for="code_text" class="block text-sm font-medium text-gray-700">
+        <label for="code_text" class="block text-sm font-light text-gray-500">
           トクテン *コード型</label
         >
         <%= f.text_field :code_text, class: "rounded-md w-full sm:w-80", placeholder: "例）ABC123"
@@ -22,18 +22,18 @@
       </div>
 
       <div class="mt-2 sm:mt-0 sm:ml-2">
-        <label for="code_url" class="block text-sm font-medium text-gray-700"
+        <label for="code_url" class="block text-sm font-light text-gray-500"
           >トクテン *URL型</label
         >
         <%= f.url_field :code_url, class: "rounded-md w-full sm:w-80", placeholder:
-        "例）https://example.com" %>
+        "例）https://example.com/" %>
       </div>
     </div>
 
     <div class="mt-4">
       <label
         for="status"
-        class="block my-1 text-sm font-medium text-gray-700 after:ml-1 after:text-red-500 after:content-['*必須']"
+        class="block my-1 text-sm font-light text-gray-500 after:ml-1 after:font-medium after:text-red-500 after:content-['*必須']"
         >公開範囲
       </label>
       <%= f.select :status, [["非公開", "1"], ["限定公開", "2"]]%>
@@ -95,7 +95,7 @@
     </div>
     <div class="mt-2 block sm:flex sm:justify-center">
       <div class="">
-        <label for="shared_benefit" class="block text-sm font-medium text-gray-700">
+        <label for="shared_benefit" class="block text-sm font-light text-gray-500">
           お友達（共有された側）のトクテン</label
         >
         <%= f.text_field :shared_benefit, class: "rounded-md w-full sm:w-80", placeholder:
@@ -103,7 +103,7 @@
       </div>
 
       <div class="mt-2 sm:mt-0 sm:ml-2">
-        <label for="shared_action" class="block text-sm font-medium text-gray-700"
+        <label for="shared_action" class="block text-sm font-light text-gray-500"
           >お友達（共有された側）のアクション</label
         >
         <%= f.text_area :shared_action, class: "rounded-md w-full sm:w-80", placeholder:
@@ -111,7 +111,7 @@
       </div>
     </div>
     <div class="mt-4">
-      <label for="info" class="block mb-1 text-sm font-medium text-gray-700"
+      <label for="info" class="block mb-1 text-sm font-light text-gray-500"
         >メモ（詳細の追加）</label
       >
       <%= f.text_area :info, class: "rounded-md w-full sm:w-80", placeholder:
@@ -121,7 +121,7 @@
     <div class="mt-2">
       <label
         for="date"
-        class="block mb-1 text-sm font-medium text-gray-700"
+        class="block mb-1 text-sm font-light text-gray-500"
         >日付</label
       >
       <%= f.date_field :date, class: "rounded-md w-full sm:w-80" %>

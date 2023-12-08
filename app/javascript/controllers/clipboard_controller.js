@@ -12,7 +12,7 @@ export default class extends Controller {
       .writeText(this.contentValue)
       .then(() => {
         // コピー成功時の処理
-        this.element.textContent = "コピー完了🎉";
+        this.element.textContent = "🎉";
         setTimeout(() => {
           this.element.innerHTML = this.originalContent; // 2秒後に元のHTMLに戻す
         }, 1000);
