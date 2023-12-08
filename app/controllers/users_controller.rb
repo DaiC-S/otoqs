@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
     if user
       @user_name = user.user_name
-      @vouchers = user.vouchers.where(status: 2)
+      @vouchers = user.vouchers.where(status: 2).order("created_at DESC")
     else
       redirect_to root_path, alert: 'User not found'
     end
