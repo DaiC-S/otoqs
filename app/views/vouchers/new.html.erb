@@ -1,136 +1,162 @@
-<%= form_with(model: @voucher, local: true, data: { turbo: false }) do |f| %>
-<main class="flex items-center justify-center p-6">
-  <div>
-    <%= render "vouchers/shared/error_messages", model: f.object %>
-
-    <div class="mt-4">
-      <label
-        for="title"
-        class="block text-sm font-light text-gray-500 after:ml-1 after:font-medium after:text-red-500 after:content-['*必須']"
-        >トクテン名</label
-      >
-      <%= f.text_field :title, class: "rounded-md w-full sm:w-80", placeholder:
-      "例）Aストア友達紹介コード" %>
-    </div>
-    <div class="mt-4 block sm:flex sm:justify-center">
-      <div class="">
-        <label for="code_text" class="block text-sm font-light text-gray-500">
-          トクテン *コード型</label
+<div class="p-8">
+  <header class="container sm:ml-[15%]">
+    <div class="">
+      <%= link_to root_path do%>
+      <div class="inline-flex items-center gap-x-1 text-sm text-blue-500 hover:text-blue-300">
+        <svg
+          class="flex-shrink-0 w-4 h-4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-        <%= f.text_field :code_text, class: "rounded-md w-full sm:w-80", placeholder: "例）ABC123"
-        %>
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+        戻る
       </div>
-
-      <div class="mt-2 sm:mt-0 sm:ml-2">
-        <label for="code_url" class="block text-sm font-light text-gray-500"
-          >トクテン *URL型</label
-        >
-        <%= f.url_field :code_url, class: "rounded-md w-full sm:w-80", placeholder:
-        "例）https://example.com/" %>
-      </div>
+      <% end %>
     </div>
-
-    <div class="mt-4">
-      <label
-        for="status"
-        class="block my-1 text-sm font-light text-gray-500 after:ml-1 after:font-medium after:text-red-500 after:content-['*必須']"
-        >公開範囲
-      </label>
-      <%= f.select :status, [["非公開", "1"], ["限定公開", "2"]]%>
-      <main>
-        <div class="flex text-sky-500">
-          <div
-            class="rounded-md bg-primary-50 my-1.5 text-sm text-primary-500"
-            x-cloak
-            x-show="showAlert"
-            x-data="{ showAlert: true }"
+  </header>
+  <%= form_with(model: @voucher, local: true, data: { turbo: false }) do |f| %>
+  <main class="flex items-center justify-center">
+    <div>
+      <%= render "vouchers/shared/error_messages", model: f.object %>
+  
+      <div class="mt-4">
+        <label
+          for="title"
+          class="block text-sm font-light text-gray-500 after:ml-1 after:font-medium after:text-red-500 after:content-['*必須']"
+          >トクテン名</label
+        >
+        <%= f.text_field :title, class: "rounded-md w-full sm:w-80", placeholder:
+        "例）Aストア友達紹介コード" %>
+      </div>
+      <div class="mt-4 block sm:flex sm:justify-center">
+        <div class="">
+          <label for="code_text" class="block text-sm font-light text-gray-500">
+            トクテン *コード型</label
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              class="h-5 w-5 flex-shrink-0"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M19 10.5a8.5 8.5 0 11-17 0 8.5 8.5 0 0117 0zM8.25 9.75A.75.75 0 019 9h.253a1.75 1.75 0 011.709 2.13l-.46 2.066a.25.25 0 00.245.304H11a.75.75 0 010 1.5h-.253a1.75 1.75 0 01-1.709-2.13l.46-2.066a.25.25 0 00-.245-.304H9a.75.75 0 01-.75-.75zM10 7a1 1 0 100-2 1 1 0 000 2z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </div>
-          <div class="mt-1.5 cursor-pointer no-underline hover:underline" id="statusDescOpen">
-            「公開範囲」とは？
-          </div>
+          <%= f.text_field :code_text, class: "rounded-md w-full sm:w-80", placeholder: "例）ABC123"
+          %>
         </div>
-        <div
-          class="fixed left-0 top-0 hidden bg-gray-300/50 h-full w-full z-10"
-          id="statusDescModal"
-        >
-          <div class="modal-content bg-white my-[50%] sm:my-[15%] mx-auto w-3/4 shadow-lg rounded-lg">
+  
+        <div class="mt-2 sm:mt-0 sm:ml-2">
+          <label for="code_url" class="block text-sm font-light text-gray-500"
+            >トクテン *URL型</label
+          >
+          <%= f.url_field :code_url, class: "rounded-md w-full sm:w-80", placeholder:
+          "例）https://example.com/" %>
+        </div>
+      </div>
+  
+      <div class="mt-4">
+        <label
+          for="status"
+          class="block my-1 text-sm font-light text-gray-500 after:ml-1 after:font-medium after:text-red-500 after:content-['*必須']"
+          >公開範囲
+        </label>
+        <%= f.select :status, [["非公開", "1"], ["限定公開", "2"]]%>
+        <main>
+          <div class="flex text-sky-500">
             <div
-              class="modal-header bg-[#2C363A] pl-4 pr-6 py-4 flex justify-between font-bold text-white"
+              class="rounded-md bg-primary-50 my-1.5 text-sm text-primary-500"
+              x-cloak
+              x-show="showAlert"
+              x-data="{ showAlert: true }"
             >
-              <h1>🤫「非公開」と「限定公開」</h1>
-              <span class="statusDescClose cursor-pointer">&times;</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-5 w-5 flex-shrink-0"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M19 10.5a8.5 8.5 0 11-17 0 8.5 8.5 0 0117 0zM8.25 9.75A.75.75 0 019 9h.253a1.75 1.75 0 011.709 2.13l-.46 2.066a.25.25 0 00.245.304H11a.75.75 0 010 1.5h-.253a1.75 1.75 0 01-1.709-2.13l.46-2.066a.25.25 0 00-.245-.304H9a.75.75 0 01-.75-.75zM10 7a1 1 0 100-2 1 1 0 000 2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
             </div>
-            <div class="modal-body p-6">
-              <p>・非公開：「あなただけ」見える</p>
-                <p class="mt-2 font-normal text-gray-500"
-                  >▷自分で記録するだけのトクテン情報は【非公開】がオススメ 👤</p
-                >
-              </p>
-              <div class="mt-6">
-                <p>・限定公開：「あなた +『マイトクテンのURL』を知っている人全員」見える</p>
-                <p class="mt-2 font-normal text-gray-500">
-                  ▷お友達に共有したいトクテン情報は【限定公開】がオススメ 👥
+            <div class="mt-1.5 cursor-pointer no-underline hover:underline" id="statusDescOpen">
+              「公開範囲」とは？
+            </div>
+          </div>
+          <div
+            class="fixed left-0 top-0 hidden bg-gray-300/50 h-full w-full z-10"
+            id="statusDescModal"
+          >
+            <div class="modal-content bg-white my-[50%] sm:my-[15%] mx-auto w-3/4 shadow-lg rounded-lg">
+              <div
+                class="modal-header bg-[#2C363A] pl-4 pr-6 py-4 flex justify-between font-bold text-white"
+              >
+                <h1>🤫「非公開」と「限定公開」</h1>
+                <span class="statusDescClose cursor-pointer">&times;</span>
+              </div>
+              <div class="modal-body p-6">
+                <p>・非公開：「あなただけ」見える</p>
+                  <p class="mt-2 font-normal text-gray-500"
+                    >▷自分で記録するだけのトクテン情報は【非公開】がオススメ 👤</p
+                  >
                 </p>
-                <p class="mt-2 font-light text-gray-500">
-                  *『マイトクテンのURL』はトップページの「マイトクテンをシェア」から確認できます。
-                </p>
+                <div class="mt-6">
+                  <p>・限定公開：「あなた +『マイトクテンのURL』を知っている人全員」見える</p>
+                  <p class="mt-2 font-normal text-gray-500">
+                    ▷お友達に共有したいトクテン情報は【限定公開】がオススメ 👥
+                  </p>
+                  <p class="mt-2 font-light text-gray-500">
+                    *『マイトクテンのURL』はトップページの「マイトクテンをシェア」から確認できます。
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+        </main>
+      </div>
+      <div class="mt-2 block sm:flex sm:justify-center">
+        <div class="">
+          <label for="shared_benefit" class="block text-sm font-light text-gray-500">
+            お友達（共有された側）のトクテン</label
+          >
+          <%= f.text_field :shared_benefit, class: "rounded-md w-full sm:w-80", placeholder:
+          "例）1,000ポイントGET" %>
         </div>
-      </main>
-    </div>
-    <div class="mt-2 block sm:flex sm:justify-center">
-      <div class="">
-        <label for="shared_benefit" class="block text-sm font-light text-gray-500">
-          お友達（共有された側）のトクテン</label
-        >
-        <%= f.text_field :shared_benefit, class: "rounded-md w-full sm:w-80", placeholder:
-        "例）1,000ポイントGET" %>
+  
+        <div class="mt-2 sm:mt-0 sm:ml-2">
+          <label for="shared_action" class="block text-sm font-light text-gray-500"
+            >お友達（共有された側）のアクション</label
+          >
+          <%= f.text_area :shared_action, class: "rounded-md w-full sm:w-80", placeholder:
+          "例）新規登録時の「紹介欄」に私の紹介コードを記載" %>
+        </div>
       </div>
-
-      <div class="mt-2 sm:mt-0 sm:ml-2">
-        <label for="shared_action" class="block text-sm font-light text-gray-500"
-          >お友達（共有された側）のアクション</label
+      <div class="mt-4">
+        <label for="info" class="block mb-1 text-sm font-light text-gray-500"
+          >メモ（詳細の追加）</label
         >
-        <%= f.text_area :shared_action, class: "rounded-md w-full sm:w-80", placeholder:
-        "例）新規登録時の「紹介欄」に私の紹介コードを記載" %>
+        <%= f.text_area :info, class: "rounded-md w-full sm:w-80", placeholder:
+        "例）紹介コードを使ってくれたら、キャッシュバック2,000円" %>
+      </div>
+  
+      <div class="mt-2">
+        <label
+          for="date"
+          class="block mb-1 text-sm font-light text-gray-500"
+          >日付</label
+        >
+        <%= f.date_field :date, class: "rounded-md w-full sm:w-80" %>
+      </div>
+  
+      <div class="mt-6 flex justify-center sm:block">
+        <%= f.submit '保存', class:"rounded-md border border-black bg-black px-24 py-3 text-sm
+        font-medium text-white transition hover:bg-transparent hover:text-black" %>
       </div>
     </div>
-    <div class="mt-4">
-      <label for="info" class="block mb-1 text-sm font-light text-gray-500"
-        >メモ（詳細の追加）</label
-      >
-      <%= f.text_area :info, class: "rounded-md w-full sm:w-80", placeholder:
-      "例）紹介コードを使ってくれたら、キャッシュバック2,000円" %>
-    </div>
+  </main>
+  <% end %>
+</div>
 
-    <div class="mt-2">
-      <label
-        for="date"
-        class="block mb-1 text-sm font-light text-gray-500"
-        >日付</label
-      >
-      <%= f.date_field :date, class: "rounded-md w-full sm:w-80" %>
-    </div>
-
-    <div class="mt-6 flex justify-center sm:block">
-      <%= f.submit '保存', class:"rounded-md border border-black bg-black px-24 py-3 text-sm
-      font-medium text-white transition hover:bg-transparent hover:text-black" %>
-    </div>
-  </div>
-</main>
-<% end %>
