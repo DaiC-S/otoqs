@@ -4,3 +4,4 @@ import "controllers";
 import "status_info";
 import "copy_mypage_url";
 import "select";
+import "action_info";
