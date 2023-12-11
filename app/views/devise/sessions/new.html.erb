@@ -1,13 +1,13 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<div class="p-10 flex items-center justify-center">
+<div class="p-8 flex items-center justify-center">
   <div>
     <div class="mt-4">
-      <h2 class="text-2xl flex justify-center sm:block font-bold text-gray-500 sm:text-4xl">
-        おかえりなさい
-      </h2>
+      <h2 class="text-2xl text-center font-bold text-gray-500 sm:text-4xl">おかえりなさい</h2>
 
-      <p class="mt-2 text-sm text-gray-500">必須項目を入力後「ログイン」を押してください。</p>
+      <p class="mt-3 text-xs text-center text-gray-500">
+        必須項目を入力後「ログイン」を押してください。
+      </p>
     </div>
 
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -32,15 +32,15 @@
       "*半角で入力してください。" %>
     </div>
 
-    <div class="mt-4 flex justify-center sm:block">
-      <%= f.submit 'ログイン', class:"rounded-md border border-black bg-black px-10 py-3 text-sm
-      font-medium text-white transition hover:bg-transparent hover:text-black" %>
+    <div class="mt-8 flex justify-center">
+      <%= f.submit 'ログイン', class:"rounded-md border border-[#2C363A] bg-[#2C363A] w-full py-3
+      text-sm font-medium text-white transition hover:bg-transparent hover:text-[#2C363A]" %>
     </div>
 
-    <div class="mt-4 grid sm:flex gap-3">
+    <div class="mt-8 grid gap-2">
       <button
         type="button"
-        class="py-2.5 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+        class="py-2.5 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
       >
         <svg
           class="flex-shrink-0 w-4 h-4"
@@ -77,11 +77,9 @@
         Sign in with Google
       </button>
 
-      <div class="border-t sm:border-t-0 sm:border-s border-gray-200 dark:border-gray-700"></div>
-
       <button
         type="button"
-        class="py-2.5 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+        class="py-2.5 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
       >
         <svg
           class="flex-shrink-0 w-4 h-4"
@@ -101,7 +99,7 @@
       </button>
     </div>
 
-    <div class="mt-4 flex justify-center sm:block text-sm">
+    <div class="mt-8 flex justify-center text-sm">
       <p class="text-gray-500">
         まだアカウントを持っていないなら<%= link_to 'コチラ', new_user_registration_path,
         class:"text-blue-500 ml-0.5 no-underline hover:underline"%>

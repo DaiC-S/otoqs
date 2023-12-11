@@ -1,13 +1,13 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-<div class="p-10 flex items-center justify-center">
-  <div>
+<div class="p-8 flex items-center justify-center">
+  <div class="sm:w-[50%] md:w-[33%]">
     <div class="mt-4">
-      <h2 class="flex justify-center text-2xl font-bold text-gray-500 sm:block sm:text-4xl">
-        OTOQS
-      </h2>
+      <h2 class="flex justify-center text-2xl font-bold text-gray-500 sm:text-4xl">OTOQS</h2>
 
-      <p class="mt-2 text-sm text-gray-500">必須項目を入力後「アカウント作成」を押してください。</p>
+      <p class="mt-3 text-xs text-center text-gray-500">
+        必須項目を入力後「アカウント作成」を押してください。
+      </p>
     </div>
 
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -18,8 +18,8 @@
         class="mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >ユーザー名</label
       >
-      <%= f.text_field :user_name, class: "block rounded-md w-80", placeholder: "*半角英数字のみ",
-      autofocus: true %>
+      <%= f.text_field :user_name, class: "block rounded-md w-full sm:w-[90%]", placeholder:
+      "*半角英数字のみ", autofocus: true %>
     </div>
 
     <div class="mt-2">
@@ -28,8 +28,8 @@
         class="mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >メールアドレス</label
       >
-      <%= f.email_field :email, class: "block rounded-md w-80", placeholder: "you@mail.com",
-      autocomplete: "email" %>
+      <%= f.email_field :email, class: "block rounded-md w-full sm:w-[90%]", placeholder:
+      "you@mail.com", autocomplete: "email" %>
     </div>
 
     <div class="mt-2">
@@ -38,7 +38,7 @@
         class="mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >パスワード</label
       >
-      <%= f.password_field :password, class: "block rounded-md w-80", placeholder:
+      <%= f.password_field :password, class: "block rounded-md w-full sm:w-[90%]", placeholder:
       "*半角英数字混合・6字以上" %>
     </div>
 
@@ -48,12 +48,12 @@
         class="mb-1 text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*必須']"
         >確認用パスワード</label
       >
-      <%= f.password_field :password_confirmation, class: "block rounded-md w-80", placeholder:
-      "*パスワードをもう一度入力して下さい" %>
+      <%= f.password_field :password_confirmation, class: "block rounded-md w-full sm:w-[90%]",
+      placeholder: "*パスワードをもう一度入力して下さい" %>
     </div>
 
     <div class="mt-4">
-      <p class="text-sm text-gray-500">
+      <p class="text-sm text-gray-500 w-full">
         By creating an account, you agree to our
         <a href="#" class="text-gray-700 no-underline hover:underline">terms and conditions</a>
         and
@@ -61,15 +61,15 @@
       </p>
     </div>
 
-    <div class="mt-4 flex justify-center sm:block">
-      <%= f.submit 'アカウント作成', class:"rounded-md border border-black bg-black py-3 px-12
-      text-sm font-medium text-white transition hover:bg-transparent hover:text-black" %>
+    <div class="mt-8 flex justify-center">
+      <%= f.submit 'アカウント作成', class:"rounded-md border border-[#2C363A] bg-[#2C363A] w-full
+      py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-[#2C363A]" %>
     </div>
 
-    <div class="mt-4 grid sm:flex gap-3">
+    <div class="mt-8 grid gap-2">
       <button
         type="button"
-        class="py-2.5 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+        class="py-2.5 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
       >
         <svg
           class="flex-shrink-0 w-4 h-4"
@@ -106,11 +106,9 @@
         Sign up with Google
       </button>
 
-      <div class="border-t sm:border-t-0 sm:border-s border-gray-200 dark:border-gray-700"></div>
-
       <button
         type="button"
-        class="py-2.5 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+        class="py-2.5 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
       >
         <svg
           class="flex-shrink-0 w-4 h-4"
@@ -130,7 +128,7 @@
       </button>
     </div>
 
-    <div class="mt-4 flex justify-center sm:block">
+    <div class="mt-8 flex justify-center">
       <p class="text-sm text-gray-500">
         すでにアカウントを持っているなら<%= link_to 'コチラ', new_user_session_path, class: "ml-0.5
         text-blue-500 no-underline hover:underline" %>
