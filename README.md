@@ -114,6 +114,7 @@ OTOQS
 |    Database    |        PostgreSQL        |
 |      Test      |       RSpec, MySQL       |
 |     CI/CD      |          GitHub          |
+|    AI tools    |     DALL-E(Chatgpt)      |
 
 # ローカルでの動作方法
 
