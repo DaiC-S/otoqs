@@ -106,15 +106,15 @@ OTOQS
 
 # 開発環境
 
-|    Category    |     Technology Stack     |
-| :------------: | :----------------------: |
-|    Frontend    | JavaScript, Tailwind CSS |
-|    Backend     |   Ruby, Ruby on Rails    |
-| Infrastructure |          render          |
-|    Database    |        PostgreSQL        |
-|      Test      |       RSpec, MySQL       |
-|     CI/CD      |          GitHub          |
-| Support tools  | Notion, DALL-E(Chatgpt)  |
+|    Category    |        Technology Stack        |
+| :------------: | :----------------------------: |
+|    Frontend    |    JavaScript, Tailwind CSS    |
+|    Backend     |      Ruby, Ruby on Rails       |
+| Infrastructure |             render             |
+|    Database    |           PostgreSQL           |
+|      Test      |          RSpec, MySQL          |
+|     CI/CD      |             GitHub             |
+| Support tools  | Notion, Figma, DALL-E(Chatgpt) |
 
 # ローカルでの動作方法
 
