@@ -2,58 +2,40 @@
   <header class="sticky top-0 p-4 bg-white border-b-2">
     <div class="flex justify-end">
       <div class="">
-        <%= link_to 'マイトクテンをシェア', "/users/#{current_user.user_name}", class: "block
-        rounded-md px-3 py-2.5 mx-2 text-sm font-medium text-black border border-gray-300 bg-white
-        transition hover:text-black/75 hover:bg-gray-50" %>
+        <%= link_to 'マイトクテンをシェア', "/users/#{current_user.user_name}", class: "block rounded-md px-3 py-2.5 mx-2 text-sm font-medium text-black border border-gray-300 bg-white transition
+        hover:text-black/75 hover:bg-gray-50" %>
       </div>
       <div class="">
-        <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete}, class:
-        "block rounded-md bg-gray-100 px-3 py-2.5 mx-2 text-sm font-medium text-black border
-        border-gray-300 bg-white transition hover:text-black/75 hover:bg-gray-50" %>
+        <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete}, class: "block rounded-md bg-gray-100 px-3 py-2.5 mx-2 text-sm font-medium text-black border border-gray-300
+        bg-white transition hover:text-black/75 hover:bg-gray-50" %>
       </div>
     </div>
   </header>
   <main class="container mx-auto p-4">
     <div data-controller="dragdrop">
       <% @vouchers.order(:position).each do |voucher| %> <% if voucher.user_id == current_user.id %>
-      <div
-        id="voucher_<%= voucher.id %>"
-        data-id="<%= voucher.id %>"
-        class="mx-4 mt-2 rounded-lg bg-white shadow-sm"
-      >
+      <div id="voucher_<%= voucher.id %>" data-id="<%= voucher.id %>" class="mx-4 mt-2 rounded-lg bg-white shadow-sm">
         <%= link_to voucher_path(voucher.id) do %>
         <div class="p-4">
-          <h3 class="text-xl font-medium text-gray-900"><%= voucher.title %></h3>
-          <p class="mt-1 text-gray-500"><%= voucher.date %></p>
+          <h3 class="text-xl font-medium text-gray-800"><%= voucher.title %></h3>
+          <p class="mt-1 font-extralight text-gray-500"><%= voucher.date %></p>
         </div>
         <%end%>
       </div>
       <%end%> <%end%>
     </div>
 
-    <%= link_to new_voucher_path, class: "fixed bottom-8 left-0 right-0 mx-auto mb-0.5 p-3
-    rounded-full border border-gray-200 bg-white w-24 h-24 text-gray-800 shadow-sm hover:bg-gray-50
+    <%= link_to new_voucher_path, class: "fixed bottom-8 left-0 right-0 mx-auto mb-0.5 p-3 rounded-full border border-gray-200 bg-white w-24 h-24 text-gray-800 shadow-sm hover:bg-gray-50
     disabled:opacity-50" do %>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      class="h-full w-full"
-    >
-      <path
-        d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z"
-      />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-full w-full">
+      <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
     </svg>
     <%end%>
   </main>
   <footer class="fixed bottom-0 w-full p-1 flex justify-around bg-white">
     <div class="text-center font-light text-xs text-gray-300">OTOQS</div>
     <div class="text-center font-light text-xs text-gray-300 hover:text-blue-500">
-      <a
-        href="https://calm-pizza-1c8.notion.site/OTOQS-d32add55ead44d969403ac18e2bc7e7a?pvs=4"
-        target="_blank"
-        >使い方</a
-      >
+      <a href="https://calm-pizza-1c8.notion.site/OTOQS-d32add55ead44d969403ac18e2bc7e7a?pvs=4" target="_blank">使い方</a>
     </div>
   </footer>
 </div>
