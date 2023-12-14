@@ -29,6 +29,13 @@ RSpec.describe User, type: :model do
         another_user.valid?
         expect(another_user.errors.full_messages).to include("User name has already been taken")
       end
+      it '大文字または小文字で同じ文字列順のuser_nameが存在する場合、大文字と小文字で区別しないため、新規作成できない' do
+        @user.save
+        another_user = FactoryBot.build(:user)
+        another_user.user_name = 'Test'   # factories/users.rbで事前に設定したuser_nameが'test'なので、@user.saveで保存されるuser_nameは'test'
+        another_user.valid?
+        expect(another_user.errors.full_messages).to include("User name has already been taken")
+      end
       it 'emailが空の場合、新規作成できない' do
         @user.email = ''
         @user.valid?
