@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_29_005118) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_16_032725) do
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "user_name", null: false
     t.string "email", default: "", null: false
@@ -28,8 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_29_005118) do
   create_table "vouchers", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title", null: false
-    t.string "code_text", null: false
-    t.text "code_url", null: false
+    t.string "code_text"
+    t.text "code_url"
     t.integer "status", null: false
     t.string "info"
     t.date "date"
