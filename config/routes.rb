@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     put :update_order, on: :collection
   end
   resources :users, only: :show
-  get '/users/:user_name' => 'users#show'
+  get '/users/:user_name', to: 'users#show'
 end
