@@ -8,6 +8,7 @@ RSpec.describe "Vouchers", type: :request do
 
   describe 'GET #index' do
     it "indexアクションにリクエストすると正常にレスポンスが返ってくる" do
+      get root_path
     end
   end
 
