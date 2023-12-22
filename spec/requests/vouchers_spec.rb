@@ -13,6 +13,13 @@ RSpec.describe "Vouchers", type: :request do
       get root_path
       expect(response.status).to eq 200
     end
+    it 'indexアクションにリクエストするとレスポンスに保存済みのトクテンの「トクテン名」が存在する' do 
+      get root_path
+      expect(response.body).to include(@voucher.title)
+    end
+    it 'indexアクションにリクエストするとレスポンスに保存済みのトクテンの「日付」が存在する' do 
+      get root_path
+    end
   end
 
 end
