@@ -18,7 +18,6 @@ RSpec.describe "Vouchers", type: :request do
       expect(response.body).to include(@voucher.title)
     end
     it 'indexアクションにリクエストするとレスポンスに保存済みのトクテンの「日付」が存在する' do 
-      get root_path
     end
   end
 
