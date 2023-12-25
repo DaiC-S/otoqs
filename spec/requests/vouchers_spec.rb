@@ -18,6 +18,20 @@ RSpec.describe "Vouchers", type: :request do
       expect(response.body).to include(@voucher.title)
     end
     it 'indexアクションにリクエストするとレスポンスに保存済みのトクテンの「日付」が存在する' do 
+      get root_path
+      expect(response.body).to include(@voucher.date.to_s)
+    end
+    it 'indexアクションにリクエストするとレスポンスに「マイトクテンをシェア」ボタンが存在する' do 
+      get root_path
+      expect(response.body).to include('マイトクテンをシェア')
+    end
+    it 'indexアクションにリクエストするとレスポンスに「ログアウト」ボタンが存在する' do 
+      get root_path
+      expect(response.body).to include('ログアウト')
+    end
+    it 'indexアクションにリクエストするとレスポンスに「使い方」のURLが存在する' do 
+      get root_path
+      expect(response.body).to include('使い方')
     end
   end
 
