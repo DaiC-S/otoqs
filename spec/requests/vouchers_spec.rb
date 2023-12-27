@@ -35,4 +35,11 @@ RSpec.describe "Vouchers", type: :request do
     end
   end
 
+  describe 'GET #show' do
+    it 'showアクションにリクエストすると正常にレスポンスが返ってくる' do 
+      get voucher_path(@voucher)
+      expect(response.status).to eq 200
+    end
+  end
+
 end
