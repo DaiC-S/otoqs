@@ -40,6 +40,10 @@ RSpec.describe "Vouchers", type: :request do
       get voucher_path(@voucher)
       expect(response.status).to eq 200
     end
+    it 'showアクションにリクエストするとレスポンスに保存済みのトクテンの「トクテン名」が存在する' do 
+      get voucher_path(@voucher)
+      expect(response.body).to include(@voucher.title)
+    end
   end
 
 end
