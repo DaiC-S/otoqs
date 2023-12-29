@@ -44,6 +44,10 @@ RSpec.describe "Vouchers", type: :request do
       get voucher_path(@voucher)
       expect(response.body).to include(@voucher.title)
     end
+    it 'showアクションにリクエストするとレスポンスに保存済みのトクテンの「公開範囲」が存在する' do 
+      get voucher_path(@voucher)
+      expect(response.body).to include(@voucher.status.to_s)
+    end
   end
 
 end
