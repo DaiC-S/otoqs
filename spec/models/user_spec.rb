@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe 'ユーザー管理／単体テスト', type: :model do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
       it '大文字または小文字で同じ文字列順のuser_nameが存在する場合、大文字と小文字で区別しないため、新規作成できない' do
         @user.save
         another_user = FactoryBot.build(:user)
-        another_user.user_name = 'Test'   # factories/users.rbで事前に設定したuser_nameが'test'なので、@user.saveで保存されるuser_nameは'test'
+        another_user.user_name = 'Test0'   # factories/users.rbで事前に設定したuser_nameが'test'なので、@user.saveで保存されるuser_nameは'test'
         another_user.valid?
         expect(another_user.errors.full_messages).to include("User name has already been taken")
       end
