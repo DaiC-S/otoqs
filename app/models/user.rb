@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :vouchers, dependent: :destroy
+  has_one_attached :avatar
 
   with_options presence: true do
     validates :user_name, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\z/i }
